@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>部分三星机型无视基带版本直接降级</title>
+    <link href="/2022/05/17/%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7/"/>
+    <url>/2022/05/17/%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>其实关于我这种无视基带版本的降级原理非常简单</p><p>三星官方不知道一直出于什么原因在发布一种工程包，但是这种工程包并不是Oneui而是安卓原生加上很多的工程程序，最主要的是这个工程包一直没有更新安卓版本，但是却一直随着基带版本更新，在更新工程包</p><p>于是我就有了个思路，可以混刷达成降级目标</p><p>最后经过我多次尝试最后总结出来了用工程包作为基带</p><p>出场版本的ONEUI作为AP部分</p><h1 id="实际操作（思路）"><a href="#实际操作（思路）" class="headerlink" title="实际操作（思路）"></a>实际操作（思路）</h1><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h3><p>首先你需要<strong>Combination</strong> file，就是那个工程包，一般在谷歌上可以搜索到，关键词就是机型+<strong>Combination</strong>  file，记住工程包的版本要和你基带版本对应，如果找不到可以等待，三星那边早晚会出</p><h2 id="2-刷写"><a href="#2-刷写" class="headerlink" title="2.刷写"></a>2.刷写</h2><p>然后根据你现在的基带版本进行刷写相应的文件<br>这一步直接用odin刷就行<br>开机后，你会发现你的工厂包的安卓版本和你手机的出场版本一致<br>下一步可能需要解锁bl，也有可能不用，还是根据实际情况判断，下载出场包正式版的odin文件，只刷AP部分，如果出现报错，解包tar文件，找到报错的分区解包后重新打包为img再压缩进入tar文件进行刷写，然后格式化data，开机后如果无基带，可以root后单刷基带分区</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2022/05/17/hello-world/"/>
     <url>/2022/05/17/hello-world/</url>
