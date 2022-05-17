@@ -264,6 +264,26 @@
 		<circle id="mdxReadProgressRing" cx="28" cy="28" r="26.5" stroke-width="2.5" stroke="rgba(255,255,255,.6)" fill="none"></circle>
 	</svg>
 	
+	<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.css">
+<script src="https://cdn.staticfile.org/gitalk/1.7.2/gitalk.min.js" id="gitalkScript" async></script>
+<script>
+	document.querySelector('#gitalkScript')
+		.onload=()=>{
+			console.log('Renderiing Gitalk...');
+			const gitalk = new Gitalk({
+				clientID: '8ef0e9ed55eb1e99c6a8',
+				clientSecret: 'db2fb59e62f86bdbbe3ba5efcd1ea02d02c2b4c7',
+				repo: 'Xpsoted.github.io',
+				owner: 'Xpsoted',
+				admin: ['Xpsoted'],
+				id: location.pathname,
+				distractionFreeMode: "Xpsoted"
+			});
+			gitalk.render('gitalk-container');
+		};
+</script> 
+
  
 </div> 
 			 
