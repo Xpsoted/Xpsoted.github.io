@@ -1,243 +1,194 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN">
+	<head>
+	<meta charset="UTF-8">
+	
+	<meta name="description" content="原理其实关于我这种无视基带版本的降级原理非常简单
+三星官方不知道一直出于什么原因在发布一种工程包，但是这种工程包并不是Oneui而是安...">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" href="" type="image/x-icon">
+	<link rel="apple-touch-icon" href="">
+	
+<script src="/js/material.js" async></script>
 
+	
+<link rel="stylesheet" href="/css/main.css">
 
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.png">
-  <link rel="icon" href="/img/avatar.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="SKDushow">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="原理其实关于我这种无视基带版本的降级原理非常简单 三星官方不知道一直出于什么原因在发布一种工程包，但是这种工程包并不是Oneui而是安卓原生加上很多的工程程序，最主要的是这个工程包一直没有更新安卓版本，但是却一直随着基带版本更新，在更新工程包 于是我就有了个思路，可以混刷达成降级目标 最后经过我多次尝试最后总结出来了用工程包作为基带 出场版本的ONEUI作为AP部分 实际操作（思路）1.准备工作首">
-<meta property="og:type" content="article">
-<meta property="og:title" content="部分三星机型无视基带版本直接降级">
-<meta property="og:url" content="https://xpsoted.github.io/2022/05/17/%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7/index.html">
-<meta property="og:site_name" content="SKDushow&#39;s Pages">
-<meta property="og:description" content="原理其实关于我这种无视基带版本的降级原理非常简单 三星官方不知道一直出于什么原因在发布一种工程包，但是这种工程包并不是Oneui而是安卓原生加上很多的工程程序，最主要的是这个工程包一直没有更新安卓版本，但是却一直随着基带版本更新，在更新工程包 于是我就有了个思路，可以混刷达成降级目标 最后经过我多次尝试最后总结出来了用工程包作为基带 出场版本的ONEUI作为AP部分 实际操作（思路）1.准备工作首">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-17T06:27:34.000Z">
-<meta property="article:modified_time" content="2022-05-17T06:38:43.586Z">
-<meta property="article:author" content="SKDushow">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  <title>部分三星机型无视基带版本直接降级 - SKDushow&#39;s Pages</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-  
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"xpsoted.github.io","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+	
+	
+		<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" integrity="sha256-HC/aPArtOc7yw62YcBzG24sJXjXJu0atujZh9a4LtUw=" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" integrity="sha256-pQMhrt4i+xYuZzfKboXTE2lnXDccZ8qI2Fh8gyGtX6Q=" crossorigin="anonymous"></script>
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+	
+	
+ 
+	<title>
+		
+		 
+		部分三星机型无视基带版本直接降级
+	</title>
+	<link rel="preload" href="/search.json" as="fetch" crossorigin="anonymous">
+	<link rel="prefetch" href="/search.json" as="fetch" crossorigin="anonymous">
+	
+	
+		
+		
+	
 <meta name="generator" content="Hexo 6.2.0"></head>
-
-
-<body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>SKDushow的小站</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="部分三星机型无视基带版本直接降级">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-17 14:27" pubdate>
-        2022年5月17日 下午
-      </time>
-    </span>
-  
+	<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto">
+		<div class="appBar">
+	<div class="mdui-appbar mdui-appbar-fixed">
+		<div class="mdui-progress mdui-color-transparent" id="pageLoadProgressIndicator">
+			<div class="mdui-progress-indeterminate"></div>
+		</div>
+		<div class="mdui-toolbar mdui-color-theme">
+			<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target:'#left-drawer',overlay:true,swipe:true}">
+				<i class="mdui-icon material-icons">&#xe5d2;</i>
+			</button>
+			<a href="/" class="mdui-typo-headline" id="appBarTitle" data-original-title="SKDushow&#39;s Pages">
+				SKDushow&#39;s Pages
+			</a>
+			<div class="mdui-toolbar-spacer"></div>
+			
+				<button
+					class="mdui-btn mdui-btn-icon mdui-ripple"
+					mdui-tooltip="{content: '在其他设备上继续阅读 '}"
+					id="readOnOtherDeviceBtn"
+					mdui-menu="{target: '#mdx_read_on_other_device'}">
+					<i class="mdui-icon material-icons">&#xe1b1;</i>
+				</button>
+				<ul class="mdui-menu mdui-color-white" id="mdx_read_on_other_device"></ul>
+			
+			<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-dialog="{target: '#searchDialog'}">
+				<i class="mdui-icon material-icons">&#xe8b6;</i>
+			</button>
+		</div>
+	</div>
 </div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      495 字
-    </span>
-  
-
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      5 分钟
-    </span>
-  
-
-  
-  
+		<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+	<div class="drawerHeader">
+		
+			<div class="drawerAbout mdui-color-theme">
+				<div class="drawerAboutMain mdui-text-color-white" style="background-image: url();"
+					data-name="" data-slogan="">
+					<img src="" alt="avatar" class="avatar">
+				</div>
+			</div>
+		
+		<button
+			class="nightMode mdui-btn mdui-btn-icon mdui-text-color-white mdui-ripple mdui-valign mdui-text-center"
+			mdui-tooltip="{content: '切换日间/夜间模式'}"
+			mdui-drawer-close="{target: '#left-drawer'}"
+			id="nightModeToggle"
+		>
+			<i class="mdui-icon material-icons"></i>
+		</button>
+	</div>
+	
+		<div class="mdui-tab mdui-tab-full-width mdx-toc-tab" mdui-tab>
+			<a href="#drawer-menu" class="mdui-ripple mdui-text-color-theme-text">
+				<i class="mdui-icon material-icons">&#xe896;</i>
+				<label>菜单</label>
+			</a>
+			<a href="#drawer-toc" class="mdui-ripple mdui-text-color-theme-text mdui-tab-active">
+				<i class="mdui-icon material-icons">&#xe86d;</i>
+				<label>目录</label>
+			</a>
+		</div>
+		<nav id="drawer-toc">
+			<ol class="mdui-text-color-theme-text mdui-ripple mdui-list"><li class="mdui-text-color-theme-text mdui-ripple mdui-list-item mdui-text-color-theme-text mdui-ripple mdui-list-level-1"><a class="mdui-text-color-theme-text mdui-ripple mdui-list-link" href="#%E5%8E%9F%E7%90%86"><span class="mdui-text-color-theme-text mdui-ripple mdui-list-number">1.</span> <span class="mdui-text-color-theme-text mdui-ripple mdui-list-text">原理</span></a></li><li class="mdui-text-color-theme-text mdui-ripple mdui-list-item mdui-text-color-theme-text mdui-ripple mdui-list-level-1"><a class="mdui-text-color-theme-text mdui-ripple mdui-list-link" href="#%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%EF%BC%88%E6%80%9D%E8%B7%AF%EF%BC%89"><span class="mdui-text-color-theme-text mdui-ripple mdui-list-number">2.</span> <span class="mdui-text-color-theme-text mdui-ripple mdui-list-text">实际操作（思路）</span></a></li></ol>
+		</nav>
+	
+	<nav id="drawer-menu">
+		<div class="mdui-list">
+			
+				
+				<a href="/" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe88a;
+					</i>
+					主页
+				</a>
+			
+				
+				<a target="_blank" rel="noopener" href="https://github.com/Yuameshi/hexo-theme-mdx" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe243;
+					</i>
+					MDx
+				</a>
+			
+				
+				<a target="_blank" rel="noopener" href="https://github.com/Yuameshi" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe149;
+					</i>
+					GitHub
+				</a>
+			
+				
+				<a href="/about" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe88e;
+					</i>
+					关于
+				</a>
+			
+		</div>
+	</nav>
 </div>
+		<div 
+	class="pageTitle mdui-color-theme mdui-color-theme"
+	style="background-image: url(''); ">
+	<h1 id="pageTitle">
+		部分三星机型无视基带版本直接降级
+	</h1>
+</div>
+		<div class="mainContent mdui-center" id="mainContent">
+			<div class="postPage mdui-card mdui-center">
+	<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js" async></script>
+	
+<script src="/js/post.js" async></script>
 
-            
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">部分三星机型无视基带版本直接降级</h1>
-            
-            <div class="markdown-body">
-              <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>其实关于我这种无视基带版本的降级原理非常简单</p>
+	
+	<div class="postMeta mdui-card-media mdui-text-color-theme-text">
+		
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '发布时间'}">
+			<span class="mdui-chip-icon">
+			  <i class="mdui-icon material-icons">&#xe192;</i>
+			</span>
+			<span class="mdui-chip-title">
+				2022-05-17
+			</span>
+		</div>
+		
+		
+			<div class="mdui-chip postCategories" mdui-tooltip="{content: '分类'}">
+				<span class="mdui-chip-icon">
+					<i class="mdui-icon material-icons">&#xe2c7;</i>
+				</span>
+				<span class="mdui-chip-title">
+					
+						未分类
+					
+				</span>
+			</div>
+		
+	</div>
+	<div class="mdui-divider"></div>
+	
+	<div class="mdui-card-content mdui-typo">
+		<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>其实关于我这种无视基带版本的降级原理非常简单</p>
 <p>三星官方不知道一直出于什么原因在发布一种工程包，但是这种工程包并不是Oneui而是安卓原生加上很多的工程程序，最主要的是这个工程包一直没有更新安卓版本，但是却一直随着基带版本更新，在更新工程包</p>
 <p>于是我就有了个思路，可以混刷达成降级目标</p>
 <p>最后经过我多次尝试最后总结出来了用工程包作为基带</p>
@@ -245,207 +196,154 @@
 <h1 id="实际操作（思路）"><a href="#实际操作（思路）" class="headerlink" title="实际操作（思路）"></a>实际操作（思路）</h1><h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h3><p>首先你需要<strong>Combination</strong> file，就是那个工程包，一般在谷歌上可以搜索到，关键词就是机型+<strong>Combination</strong>  file，记住工程包的版本要和你基带版本对应，如果找不到可以等待，三星那边早晚会出</p>
 <h2 id="2-刷写"><a href="#2-刷写" class="headerlink" title="2.刷写"></a>2.刷写</h2><p>然后根据你现在的基带版本进行刷写相应的文件<br>这一步直接用odin刷就行<br>开机后，你会发现你的工厂包的安卓版本和你手机的出场版本一致<br>下一步可能需要解锁bl，也有可能不用，还是根据实际情况判断，下载出场包正式版的odin文件，只刷AP部分，如果出现报错，解包tar文件，找到报错的分区解包后重新打包为img再压缩进入tar文件进行刷写，然后格式化data，开机后如果无基带，可以root后单刷基带分区</p>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/05/17/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-  </div>
-  
-
-  
-
-  
+	</div>
+	
+	<div class="mdui-divider"></div>
+	<div class="pageEnd mdui-center mdui-card">
+		<button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-theme-accent shareBtn" mdui-menu="{target: '#shareMenu', align: 'left' ,position: 'top'}">
+			<i class="mdui-icon material-icons">&#xe80d;</i>
+		</button>
+		<ul class="mdui-menu" id="shareMenu">
+			<li class="mdui-menu-item">
+				<a href="https://service.weibo.com/share/share.php?appkey=&title=%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7&url=https://xpsoted.github.io/2022/05/17/%25E9%2583%25A8%25E5%2588%2586%25E4%25B8%2589%25E6%2598%259F%25E6%259C%25BA%25E5%259E%258B%25E6%2597%25A0%25E8%25A7%2586%25E5%259F%25BA%25E5%25B8%25A6%25E7%2589%2588%25E6%259C%25AC%25E7%259B%25B4%25E6%258E%25A5%25E9%2599%258D%25E7%25BA%25A7/&pic=undefined&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 微博 </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://connect.qq.com/widget/shareqq/index.html?site=SKDushow's%20Pages&title=%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7&summary=%E5%8E%9F%E7%90%86%E5%85%B6%E5%AE%9E%E5%85%B3%E4%BA%8E%E6%88%91%E8%BF%99%E7%A7%8D%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9A%84%E9%99%8D%E7%BA%A7%E5%8E%9F%E7%90%86%E9%9D%9E%E5%B8%B8%E7%AE%80%E5%8D%95%0A%E4%B8%89%E6%98%9F%E5%AE%98%E6%96%B9%E4%B8%8D%E7%9F%A5%E9%81%93%E4%B8%80%E7%9B%B4%E5%87%BA%E4%BA%8E%E4%BB%80%E4%B9%88%E5%8E%9F%E5%9B%A0%E5%9C%A8%E5%8F%91%E5%B8%83%E4%B8%80%E7%A7%8D%E5%B7%A5%E7%A8%8B%E5%8C%85%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%99%E7%A7%8D%E5%B7%A5%E7%A8%8B%E5%8C%85%E5%B9%B6%E4%B8%8D%E6%98%AFOneui%E8%80%8C%E6%98%AF%E5%AE%89%E5%8D%93%E5%8E%9F%E7%94%9F%E5%8A%A0%E4%B8%8A%E5%BE%88%E5%A4%9A%E7%9A%84%E5%B7%A5%E7%A8%8B%E7%A8%8B%E5%BA%8F%EF%BC%8C%E6%9C%80%E4%B8%BB%E8%A6%81%E7%9A%84%E6%98%AF%E8%BF%99%E4%B8%AA%E5%B7%A5%E7%A8%8B%E5%8C%85%E4%B8%80%E7%9B%B4%E6%B2%A1%E6%9C%89%E6%9B%B4%E6%96%B0%E5%AE%89%E5%8D%93%E7%89%88%E6%9C%AC%EF%BC%8C%E4%BD%86%E6%98%AF%E5%8D%B4%E4%B8%80%E7%9B%B4%E9%9A%8F%E7%9D%80%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%EF%BC%8C%E5%9C%A8%E6%9B%B4%E6%96%B0%E5%B7%A5%E7%A8%8B%E5%8C%85%0A%E4%BA%8E%E6%98%AF%E6%88%91%E5%B0%B1%E6%9C%89%E4%BA%86%E4%B8%AA%E6%80%9D%E8%B7%AF%EF%BC%8C%E5%8F%AF%E4%BB%A5%E6%B7%B7%E5%88%B7%E8%BE%BE%E6%88%90%E9%99%8D%E7%BA%A7%E7%9B%AE%E6%A0%87%0A%E6%9C%80%E5%90%8E%E7%BB%8F%E8%BF%87%E6%88%91%E5%A4%9A%E6%AC%A1%E5%B0%9D%E8%AF%95%E6%9C%80%E5%90%8E%E6%80%BB%E7%BB%93%E5%87%BA%E6%9D%A5%E4%BA%86%E7%94%A8%E5%B7%A5%E7%A8%8B%E5%8C%85%E4%BD%9C%E4%B8%BA%E5%9F%BA%E5%B8%A6%0A%E5%87%BA%E5%9C%BA%E7%89%88%E6%9C%AC%E7%9A%84ONEUI%E4%BD%9C%E4%B8%BAAP%E9%83%A8%E5%88%86%0A%E5%AE%9E%E9%99%85%E6%93%8D%E4%BD%9C%EF%BC%88%E6%80%9D%E8%B7%AF%EF%BC%891.%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C%E9%A6%96%E5%85%88%E4%BD%A0%E9%9C%80%E8%A6%81Combination%20file%EF%BC%8C%E5%B0%B1%E6%98%AF%E9%82%A3%E4%B8%AA%E5%B7%A5%E7%A8%8B%E5%8C%85%EF%BC%8C%E4%B8%80%E8%88%AC%E5%9C%A8%E8%B0%B7%E6%AD%8C%E4%B8%8A%E5%8F%AF%E4%BB%A5%E6%90%9C%E7%B4%A2%E5%88%B0%EF%BC%8C%E5%85%B3%E9%94%AE%E8%AF%8D%E5%B0%B1%E6%98%AF%E6%9C%BA..." target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 QQ </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="javascript:void(0)" class="mdui-ripple" mdui-dialog="{target: '#shareToWechatQRCodeDialog'}">分享到 微信 </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://xpsoted.github.io/2022/05/17/%25E9%2583%25A8%25E5%2588%2586%25E4%25B8%2589%25E6%2598%259F%25E6%259C%25BA%25E5%259E%258B%25E6%2597%25A0%25E8%25A7%2586%25E5%259F%25BA%25E5%25B8%25A6%25E7%2589%2588%25E6%259C%25AC%25E7%259B%25B4%25E6%258E%25A5%25E9%2599%258D%25E7%25BA%25A7/&title=%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7&content=utf-8" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 QQ空间 </a>
+			</li>
+			<li class="mdui-divider"></li>
+			<li class="mdui-menu-item">
+				<a href="https://telegram.me/share/url?url=https://xpsoted.github.io/2022/05/17/%25E9%2583%25A8%25E5%2588%2586%25E4%25B8%2589%25E6%2598%259F%25E6%259C%25BA%25E5%259E%258B%25E6%2597%25A0%25E8%25A7%2586%25E5%259F%25BA%25E5%25B8%25A6%25E7%2589%2588%25E6%259C%25AC%25E7%259B%25B4%25E6%258E%25A5%25E9%2599%258D%25E7%25BA%25A7/&text=%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 Telegram </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a target="_blank" rel="noopener" href="https://www.facebook.com/sharer.php?u=https://xpsoted.github.io/2022/05/17/%25E9%2583%25A8%25E5%2588%2586%25E4%25B8%2589%25E6%2598%259F%25E6%259C%25BA%25E5%259E%258B%25E6%2597%25A0%25E8%25A7%2586%25E5%259F%25BA%25E5%25B8%25A6%25E7%2589%2588%25E6%259C%25AC%25E7%259B%25B4%25E6%258E%25A5%25E9%2599%258D%25E7%25BA%25A7/" class="mdui-ripple">分享到 Facebook </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://twitter.com/intent/tweet?text=%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7&url=https://xpsoted.github.io/2022/05/17/%25E9%2583%25A8%25E5%2588%2586%25E4%25B8%2589%25E6%2598%259F%25E6%259C%25BA%25E5%259E%258B%25E6%2597%25A0%25E8%25A7%2586%25E5%259F%25BA%25E5%25B8%25A6%25E7%2589%2588%25E6%259C%25AC%25E7%259B%25B4%25E6%258E%25A5%25E9%2599%258D%25E7%25BA%25A7/" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 Twitter </a>
+			</li>
+		</ul>
+		<div class="mdui-dialog" id="shareToWechatQRCodeDialog">
+			<div class="mdui-container mdui-text-color-gray mdui-color-white shareToWechatQRCodeOuterContainer">
+				<div id="shareToWechatQRCodeContainer"></div>
+				<i class="mdui-icon material-icons">&#xe80d;</i> 使用微信扫描后在微信内分享
+			</div>
+			<div class="mdui-container">
+				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center" mdui-dialog-close>关闭</button>
+			</div>
+		</div>
+		
+			<div class="pageEndText mdui-card-actions mdui-typo">
+				END
+			</div>
+		
+		<div class="postTags">
+			<i class="mdui-icon material-icons mdui-text-color-theme-secondary">&#xe54e;</i>
+			
+				无标签
+			
+		</div>
+		
+		<div class="nav">
+			
+			
+				<a rel="next" href="/2022/05/17/hello-world/" class="mdui-text-color-theme-secondary">
+					<span>Hello World</span>
+					<i class="mdui-icon material-icons">&#xe315;</i>
+				</a>
+			
+		</div>
+	</div>
+	<svg class="mdui-fab-fixed" id="mdxReadProgress" width="56" height="56" viewBox="0 0 56 56">
+		<circle id="mdxReadProgressRing" cx="28" cy="28" r="26.5" stroke-width="2.5" stroke="rgba(255,255,255,.6)" fill="none"></circle>
+	</svg>
+	
+ 
+</div> 
+			 
+		</div>
+		<footer class="footer mdui-text-color-theme-secondary">
+	<div class="footerUpperLayer">
+		<div class="title">
+			<a href="https://Xpsoted.github.io" class="mdui-text-color-theme-secondary">SKDushow's Pages</a>
+		</div>
+		<div class="detail">
+			<div class="text">
+				
+				
+					
+					<div class="contact">
+						
+							<a target="_blank" rel="noopener" href="https://github.com/Yuameshi/hexo-theme-mdx" class="mdui-text-color-theme-secondary">
+								MDx
+							</a>
+						
+							<a target="_blank" rel="noopener" href="https://github.com/Yuameshi" class="mdui-text-color-theme-secondary">
+								GitHub
+							</a>
+						
+					</div>
+				
+			</div>
+			<div class="copyrights">
+				&copy; 2022 - 2022 SKDushow
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="footerLowerLayer">
+		<div class="left">
+			
+				<a href="https://hexo.io" class="mdui-text-color-theme-secondary" target="_blank">由 Hexo 强力驱动</a>
+			
+			
+				&nbsp;&&nbsp;
+			
+			
+				<a href="https://github.com/Yuameshi/hexo-theme-mdx" class="mdui-text-color-theme-secondary" target="_blank">由 MDx 主题装饰</a>
+			
+		</div>
+		<div class="right">
+			
+			
+			
+		</div>
+	</div>
 </footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
-  
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-  <!-- 一言API -->
-  <!-- 现代写法，推荐 -->
-  <!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
-  <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-  <!--End-->
-  <script>
-    fetch('https://v1.hitokoto.cn')
-      .then(function (res){
-        return res.json();
-      })
-      .then(function (data) {
-        var hitokoto = document.getElementById('hitokoto');
-        hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
-      })
-      .catch(function (err) {
-        console.error(err);
-      })
-  </script>
-</body>
+		 
+		<div class="mdui-dialog" id="searchDialog">
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label" for="searchInputBox">搜点什么...</label>
+				<input class="mdui-textfield-input" type="text" id="searchInputBox" />
+			</div>
+			<div class="mdui-container" id="searchResultContainer"></div>
+		</div>
+		 
+		<button id="goToTopBtn" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent">
+			<i class="mdui-icon material-icons">&#xe316;</i>
+		</button>
+		 
+		
+			<script>
+				if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {
+					window.addEventListener('load', function () {
+						mdui.snackbar({
+							message: `此网站使用Cookie来改善您的体验。`,
+							buttonText: "了解",
+							timeout: 0,
+							position: 'right-bottom',
+							closeOnOutsideClick: false,
+							onButtonClick: function(){
+								localStorage.setItem('checkedGPDRCookieAlert','true');
+							},
+						});
+					});
+				}
+			</script>
+		
+	</body>
 </html>
