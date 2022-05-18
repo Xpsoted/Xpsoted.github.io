@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+	<meta charset="UTF-8">
+	
+	<meta name="description" content="前言大家好诶，很多机型，尤其是新机器没有Twrp，很困难呐，
+但是呢由于vab或者啥的又导致没法移植，很多人呢想搞编译又苦于没电脑，没...">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<link rel="preload" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png " as="image" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png " as="image" crossorigin="anonymous">
+	
+	<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png" type="image/x-icon">
+	<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png">
+	
+<script src="/js/material.js" async></script>
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+	
+	
+		<link rel="preconnect" href="https://cdn.jsdelivr.net/" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/css/mdui.min.css" integrity="sha256-HC/aPArtOc7yw62YcBzG24sJXjXJu0atujZh9a4LtUw=" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/js/mdui.min.js" integrity="sha256-pQMhrt4i+xYuZzfKboXTE2lnXDccZ8qI2Fh8gyGtX6Q=" crossorigin="anonymous"></script>
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="preload" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Regular.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Medium.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/fonts/roboto/Roboto-Bold.woff2" as="font" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/npm/mdui@1.0.2/dist/icons/material-icons/MaterialIcons-Regular.woff2" as="font" crossorigin="anonymous">
+	
+	
+ 
+	<title>
+		
+		 
+		手机没Twrp？自己写一个就好啦（自己适配device tree）
+	</title>
+	<link rel="preload" href="/search.json" as="fetch" crossorigin="anonymous">
+	<link rel="prefetch" href="/search.json" as="fetch" crossorigin="anonymous">
+	
+		<link rel="preload" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/default.png " as="image" crossorigin="anonymous">
+		<link rel="prefetch" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/default.png " as="image" crossorigin="anonymous">
+	
+	
+		
+			<link rel="prefetch" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png " as="image" crossorigin="anonymous">
+		
+		
+			<link rel="prefetch" href="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/back.jpg " as="image" crossorigin="anonymous">
+		
+	
+<meta name="generator" content="Hexo 6.2.0"></head>
+	<body class="mdui-theme-primary-indigo mdui-theme-accent-pink mdui-theme-layout-auto">
+		<div class="appBar">
+	<div class="mdui-appbar mdui-appbar-fixed">
+		<div class="mdui-progress mdui-color-transparent" id="pageLoadProgressIndicator">
+			<div class="mdui-progress-indeterminate"></div>
+		</div>
+		<div class="mdui-toolbar mdui-color-theme">
+			<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-drawer="{target:'#left-drawer',overlay:true,swipe:true}">
+				<i class="mdui-icon material-icons">&#xe5d2;</i>
+			</button>
+			<a href="/" class="mdui-typo-headline" id="appBarTitle" data-original-title="SKDushow&#39;s Pages">
+				SKDushow&#39;s Pages
+			</a>
+			<div class="mdui-toolbar-spacer"></div>
+			
+				<button
+					class="mdui-btn mdui-btn-icon mdui-ripple"
+					mdui-tooltip="{content: '在其他设备上继续阅读 '}"
+					id="readOnOtherDeviceBtn"
+					mdui-menu="{target: '#mdx_read_on_other_device'}">
+					<i class="mdui-icon material-icons">&#xe1b1;</i>
+				</button>
+				<ul class="mdui-menu mdui-color-white" id="mdx_read_on_other_device"></ul>
+			
+			<button class="mdui-btn mdui-btn-icon mdui-ripple" mdui-dialog="{target: '#searchDialog'}">
+				<i class="mdui-icon material-icons">&#xe8b6;</i>
+			</button>
+		</div>
+	</div>
+</div>
+		<div class="mdui-drawer mdui-color-white mdui-drawer-full-height mdui-drawer-close" id="left-drawer">
+	<div class="drawerHeader">
+		
+			<div class="drawerAbout mdui-color-theme">
+				<div class="drawerAboutMain mdui-text-color-white" style="background-image: url(https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/back.jpg);"
+					data-name="SKDushow" data-slogan="高中生，喜欢捣鼓奇怪的电子产品的😍">
+					<img src="https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/avatar.png" alt="avatar" class="avatar">
+				</div>
+			</div>
+		
+		<button
+			class="nightMode mdui-btn mdui-btn-icon mdui-text-color-white mdui-ripple mdui-valign mdui-text-center"
+			mdui-tooltip="{content: '切换日间/夜间模式'}"
+			mdui-drawer-close="{target: '#left-drawer'}"
+			id="nightModeToggle"
+		>
+			<i class="mdui-icon material-icons"></i>
+		</button>
+	</div>
+	
+		<div class="mdui-tab mdui-tab-full-width mdx-toc-tab" mdui-tab>
+			<a href="#drawer-menu" class="mdui-ripple mdui-text-color-theme-text">
+				<i class="mdui-icon material-icons">&#xe896;</i>
+				<label>菜单</label>
+			</a>
+			<a href="#drawer-toc" class="mdui-ripple mdui-text-color-theme-text mdui-tab-active">
+				<i class="mdui-icon material-icons">&#xe86d;</i>
+				<label>目录</label>
+			</a>
+		</div>
+		<nav id="drawer-toc">
+			<ol class="mdui-text-color-theme-text mdui-ripple mdui-list"><li class="mdui-text-color-theme-text mdui-ripple mdui-list-item mdui-text-color-theme-text mdui-ripple mdui-list-level-1"><a class="mdui-text-color-theme-text mdui-ripple mdui-list-link" href="#%E5%89%8D%E8%A8%80"><span class="mdui-text-color-theme-text mdui-ripple mdui-list-number">1.</span> <span class="mdui-text-color-theme-text mdui-ripple mdui-list-text">前言</span></a></li><li class="mdui-text-color-theme-text mdui-ripple mdui-list-item mdui-text-color-theme-text mdui-ripple mdui-list-level-1"><a class="mdui-text-color-theme-text mdui-ripple mdui-list-link" href="#%E4%B8%80%EF%BC%8C%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="mdui-text-color-theme-text mdui-ripple mdui-list-number">2.</span> <span class="mdui-text-color-theme-text mdui-ripple mdui-list-text">一，准备工作</span></a></li><li class="mdui-text-color-theme-text mdui-ripple mdui-list-item mdui-text-color-theme-text mdui-ripple mdui-list-level-1"><a class="mdui-text-color-theme-text mdui-ripple mdui-list-link" href="#%E4%BA%8C%EF%BC%8C%E5%BC%80%E5%A7%8B%E7%BC%96%E5%86%99dt"><span class="mdui-text-color-theme-text mdui-ripple mdui-list-number">3.</span> <span class="mdui-text-color-theme-text mdui-ripple mdui-list-text">二，开始编写dt</span></a></li></ol>
+		</nav>
+	
+	<nav id="drawer-menu">
+		<div class="mdui-list">
+			
+				
+				<a href="/" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe88a;
+					</i>
+					主页
+				</a>
+			
+				
+				<a target="_blank" rel="noopener" href="https://github.com/Xpsoted" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe149;
+					</i>
+					GitHub
+				</a>
+			
+				
+				<a href="/about" class="mdui-list-item mdui-ripple mdui-text-color-theme-text">
+					<i class="mdui-list-item-icon mdui-icon material-icons">
+						&#xe88e;
+					</i>
+					关于
+				</a>
+			
+		</div>
+	</nav>
+</div>
+		<div 
+	class="pageTitle mdui-color-theme mdui-color-theme"
+	style="background-image: url('https://cdn.jsdelivr.net/gh/Xpsoted/Xpsoted.github.io@master/img/default.png'); ">
+	<h1 id="pageTitle">
+		手机没Twrp？自己写一个就好啦（自己适配device tree）
+	</h1>
+</div>
+		<div class="mainContent mdui-center" id="mainContent">
+			<div class="postPage mdui-card mdui-center">
+	<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js" async></script>
+	
+<script src="/js/post.js" async></script>
+
+	
+	<div class="postMeta mdui-card-media mdui-text-color-theme-text">
+		
+		<div class="mdui-chip postDate" mdui-tooltip="{content: '发布时间'}">
+			<span class="mdui-chip-icon">
+			  <i class="mdui-icon material-icons">&#xe192;</i>
+			</span>
+			<span class="mdui-chip-title">
+				2022-05-18
+			</span>
+		</div>
+		
+		
+			<div class="mdui-chip postCategories" mdui-tooltip="{content: '分类'}">
+				<span class="mdui-chip-icon">
+					<i class="mdui-icon material-icons">&#xe2c7;</i>
+				</span>
+				<span class="mdui-chip-title">
+					
+						未分类
+					
+				</span>
+			</div>
+		
+	</div>
+	<div class="mdui-divider"></div>
+	
+	<div class="mdui-card-content mdui-typo">
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>大家好诶，很多机型，尤其是新机器没有Twrp，很困难呐，</p>
+<p>但是呢由于vab或者啥的又导致没法移植，很多人呢想搞编译又苦于没电脑，没dt，</p>
+<p>所以呢我今天就教教各位如何用手写一个Twrp并在手机上进行编译操作，我相信我的教程人类都可以看懂</p>
+<p>（当然前提你要有一些刷机基础，而且我确信我在文中所用的专业名词都可以在百度里面搜到，所以你只要认真+细心一定可以学懂哦）</p>
+<h1 id="一，准备工作"><a href="#一，准备工作" class="headerlink" title="一，准备工作"></a>一，准备工作</h1><h5 id="1-了解你手机的分区（可以用【底层探测器】-来查看）"><a href="#1-了解你手机的分区（可以用【底层探测器】-来查看）" class="headerlink" title="1.了解你手机的分区（可以用【底层探测器】 来查看）"></a>1.了解你手机的分区（可以用<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/net.imknown.android.forefrontinfo">【底层探测器】</a> 来查看）</h5><p>简单来讲可以分为最直观的两类<br>第一种是有独立recovery分区，这种分区包含<br>System As Root分区（Sar）近几年小米三星都应该用的这种分区<br>A only分区，老机型偏多</p>
+<p>第二种是将recovery集成在boot分区里面<br>A&#x2F;B分区（近几年新机，出场安卓8-10居多）<br>V-AB分区（出场安卓11机型居多）</p>
+<p><em>其他：要注意你的手机是否为动态分区，这点很重要跟后来的教程有关，一般v-ab都为动态分区，近两年新机大多都是动态分区</em></p>
+<h5 id="2-下载-x2F-提取你手机的官方刷机包，并解包"><a href="#2-下载-x2F-提取你手机的官方刷机包，并解包" class="headerlink" title="2.下载&#x2F;提取你手机的官方刷机包，并解包"></a>2.下载&#x2F;提取你手机的官方刷机包，并解包</h5><p>这点应该不会很难吧，各位但凡有刷机基础应该都可以办到</p>
+<p>下载好的官方包<br>如果你是我上面说的第一种分区就提取recovery.img<br>如果你是第二种就提取boot.img<br>无官方包提取我推荐这个工具<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/xzr.La.systemtoolbox">【镧·系统工具箱 2.0】</a></p>
+<p>然后现在就需要解包工具啦<br>因为recovery.img和boot.img的解包方式是一样的，所以这两个解包工具是通用的，虽然我知道有很多很棒的免费解包工具，但是小白我还是推荐<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/com.nightmare">【魇·工具箱 - 镜像工具】</a>，虽然收费但是有独立gui确实很方便，以下的教程我将用这个工具，如果你是电脑用户我当然推荐使用安卓厨房等一系列你觉得ok工具</p>
+<p>解包具体流程你可以看我在<a target="_blank" rel="noopener" href="https://www.coolapk.com/feed/31663529?shareKey=YmUzNWRjYmE0ZGYxNjI4NDM2M2M~&shareUid=1195294&shareFrom=com.coolapk.market_12.2.1"><em><strong>酷安的文章</strong></em></a>，今天我在这里发文章主要是为了代码部分，建议各位混着看</p>
+<h1 id="二，开始编写dt"><a href="#二，开始编写dt" class="headerlink" title="二，开始编写dt"></a>二，开始编写dt</h1><h5 id="1-关于dt和编译你所需要了解的"><a href="#1-关于dt和编译你所需要了解的" class="headerlink" title="1,关于dt和编译你所需要了解的"></a>1,关于dt和编译你所需要了解的</h5><p>可能很多人不知道twrp是如何来的，这里我就给各位讲讲<br>如果你用的是正统的twrp制造方法，那么简单来讲可以分为两大步<br>第一步，编写device tree<br>第二步，编译twrp</p>
+<p>twrp是一套完整的通用源码<br>而device tree呢就好比我们在里面写下关于我机器的各种特征，各种参数<br>然后twrp的源码来读取我们写的device tree，并根据我们写的参数来进行编译，生产你们平时用的twrp<br>而这步呢一般情况下就统称为编译</p>
+<p>我们来制造twrp时呢大多数时候是可以不用碰twrp源码，我们只需要写device tree就可以，然后进行编译，所以这一步我就来教各位如何写twrp的dt（device tree）</p>
+<h5 id="2-了解一个dt的文件结构"><a href="#2-了解一个dt的文件结构" class="headerlink" title="2.了解一个dt的文件结构"></a>2.了解一个dt的文件结构</h5><p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/1.PNG"></p>
+<h6 id="1-prebuilt文件夹"><a href="#1-prebuilt文件夹" class="headerlink" title="(1)prebuilt文件夹"></a>(1)prebuilt文件夹</h6><p>这个文件夹的作用非常好理解，里面就是存放我们在第一步提取出来的内核喵喵<br>像这种提取出来的内核又名为预编译内核<br>预编译内核顾名思义就是已经预备编译好的内核<br>其中image.gz为内核本体<br>下面的dtb.img也是从刚才的第一步里面提取出来的<br>有部分机型可能会提取出来dtbo如果有的话也要放进来</p>
+<p>其中xxx-kernel就是image.gz<br>xxx-dtb就是dtb.img</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/2.PNG"></p>
+<h6 id="2-root文件夹"><a href="#2-root文件夹" class="headerlink" title="(2)root文件夹"></a>(2)root文件夹</h6><p>一般情况下都是要直接在这个文件夹里面直接新建个recovery文件夹，而这里面的文件来源都是在刚才RamDisk里面提取的init.xxx.rc，如果要修复解密要➕更多的东西，但是由于这里是小白教程就不多教了<br>提取的位置在RamDisk根目录下，提取所有的rc脚本过来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/3.PNG"></p>
+<h6 id="3-剩下的mk文件都是各种机型参数和编译选择的填写位置"><a href="#3-剩下的mk文件都是各种机型参数和编译选择的填写位置" class="headerlink" title="(3)剩下的mk文件都是各种机型参数和编译选择的填写位置"></a>(3)剩下的mk文件都是各种机型参数和编译选择的填写位置</h6><p>我大概说下每个的作用，具体看下文的教程</p>
+<p><code>Android.mk</code><br>用于声明你机型的机型代号，比如你的手机是小米5那么你的代号就是gemini</p>
+<p><code>AndroidProduct.mk</code><br>用于告知twrp源码你写机型名称的那个mk的名字，这样才能让twrp读取到你的mk去编译</p>
+<p><code>BoardConfig.mk</code><br>一般用于写机型的内核分区等配置文件</p>
+<p><code>device.mk</code><br>如果你不是AB&#x2F;vab分区一般用不到这个，这个是写AB分区配置的</p>
+<p><code>twrp_机型代号.mk/omni_机型代号.mk</code><br>这两个名字根据你twrp源码的安卓版本对应，如果你是安卓11就用twrp开头的，如果是以下的就用omni</p>
+<p><code>recovery.fstab</code><br>这个文件是用来声明个个分区的挂载位置，也是提取自RamDisk</p>
+<h5 id="3-真正开始手写dt"><a href="#3-真正开始手写dt" class="headerlink" title="3.真正开始手写dt"></a>3.真正开始手写dt</h5><h6 id="1-利用你喜欢的文件管理器搭建一个dt框架"><a href="#1-利用你喜欢的文件管理器搭建一个dt框架" class="headerlink" title="(1)利用你喜欢的文件管理器搭建一个dt框架"></a>(1)利用你喜欢的文件管理器搭建一个dt框架</h6><p>首先新建个文件夹<br>将文件夹命名为<code>android_device_品牌英文名_机型代号</code><br>其实命名成啥都行，不过嘛，把这玩意命名成这种格式是一种标准，建议跟进下<br>然后按照我所列出的树状图来新建文件和文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">android_device_品牌英文名_机型代号</span><br><span class="line">├─prebuilt（文件夹）</span><br><span class="line">├─root（文件夹）</span><br><span class="line">│  └─recovery（文件夹）</span><br><span class="line">├─Android.mk</span><br><span class="line">├─device.mk（如果你的设备为第一章分区不需要这个）</span><br><span class="line">├─BoardConfig.mk</span><br><span class="line">├─twrp_机型代号.mk（安卓11+）</span><br><span class="line">├─omni_机型代号.mk（安卓4-10）</span><br><span class="line">└─vendorsetup.sh</span><br></pre></td></tr></table></figure>
+
+<p>等完全新建号后差不多是图下这个样子</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/1.PNG"></p>
+<h6 id="2-提取文件到dt里面"><a href="#2-提取文件到dt里面" class="headerlink" title="(2)提取文件到dt里面"></a>(2)提取文件到dt里面</h6><p>咱们先从最简单的开始recovery.fstab<br>一般这个文件会存在在ramdisk&#x2F;etc&#x2F;recovery.fstab，将这个文件放到dt根目录下</p>
+<p>如果没有这个文件可以去找你手机的vendor&#x2F;etc或system&#x2F;etc下的fstab文件（大于2k）并重命名为recovery.fstab拷贝到dt根目录下</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/5.PNG"></p>
+<p>提取rc脚本到root&#x2F;recovery，这些脚本直接从RamDisk根目录下找到并复制进去</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/6.PNG"></p>
+<p>要拷贝的最后一个文件就是预编译内核啦，这个不在RamDisk而在split_img下，将文件后有dtb的命名为dtb.img，将有kernel命名为image.gz放到dt的prebuilt目录下，如果你的机型解出来的还有后面有-dtbo结尾的，将其命名为dtbo.img也放进来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/7.PNG"></p>
+<h6 id="3-编辑mk文件"><a href="#3-编辑mk文件" class="headerlink" title="(3)编辑mk文件"></a>(3)编辑mk文件</h6><p>好了各位，这步要切入正题了，各位要认真观看反复观摩哟</p>
+<p>先从<code>Android.mk</code>开始，这步是最简单的<br>首先你要知道你的机型代号</p>
+<p>这步的含义很简单就是写下你的机型代号，所以我就不多讲了，上面# 后面的那些话都是注释，也建议各位保留下来，不要复制的时候删掉，将倒数第三行的<code>k61v1</code>改成你的机型代号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">LOCAL_PATH := $(call my-dir)</span><br><span class="line"></span><br><span class="line">ifeq ($(TARGET_DEVICE), k61v1)</span><br><span class="line">include $(call all-subdir-makefiles,$(LOCAL_PATH))</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>AndroidProducts.mk</code></strong><br>同样也是将我提供的例子的代码复制下来，将最后一行中<code>twrp_k61v1.mk</code>改为你自己所命名的文件名称，这步不知道我在说啥的，往上面翻，看我画的树状图<br>这步的作用是在告诉twrp的源码你的文件名称</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">PRODUCT_MAKEFILES := \</span><br><span class="line">     $(LOCAL_DIR)/twrp_k61v1.mk</span><br></pre></td></tr></table></figure>
+
+<p> ***<code>BoardConfig.mk</code><br>***家人吗大的要来了，这步听我慢慢道来<br>从头开始看，我先把这个文件所有代码贴上来，下面会分块讲解下这个文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">DEVICE_PATH := device/duoqin/k61v1_64_bsp</span><br><span class="line"></span><br><span class="line"># For building with minimal manifest</span><br><span class="line">ALLOW_MISSING_DEPENDENCIES := true</span><br><span class="line"></span><br><span class="line"># Architecture</span><br><span class="line">TARGET_ARCH := arm64</span><br><span class="line">TARGET_ARCH_VARIANT := armv8-a</span><br><span class="line">TARGET_CPU_ABI := arm64-v8a</span><br><span class="line">TARGET_CPU_ABI2 :=</span><br><span class="line">TARGET_CPU_VARIANT := generic</span><br><span class="line"></span><br><span class="line">TARGET_2ND_ARCH := arm</span><br><span class="line">TARGET_2ND_ARCH_VARIANT := armv7-a-neon</span><br><span class="line">TARGET_2ND_CPU_ABI := armeabi-v7a</span><br><span class="line">TARGET_2ND_CPU_ABI2 := armeabi</span><br><span class="line">TARGET_2ND_CPU_VARIANT := generic</span><br><span class="line">TARGET_BOARD_SUFFIX := _64</span><br><span class="line">TARGET_USES_64_BIT_BINDER := true</span><br><span class="line"></span><br><span class="line"># Assert</span><br><span class="line">TARGET_OTA_ASSERT_DEVICE := k61v1_64_bsp</span><br><span class="line"></span><br><span class="line"># File systems</span><br><span class="line">BOARD_HAS_LARGE_FILESYSTEM := true</span><br><span class="line">BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4</span><br><span class="line">BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4</span><br><span class="line">BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4</span><br><span class="line">TARGET_USERIMAGES_USE_EXT4 := true</span><br><span class="line">TARGET_USERIMAGES_USE_F2FS := true</span><br><span class="line">TARGET_COPY_OUT_VENDOR := vendor</span><br><span class="line"></span><br><span class="line"># A/B</span><br><span class="line">ENABLE_VIRTUAL_AB := true</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)</span><br><span class="line"></span><br><span class="line"># Kernel</span><br><span class="line">BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user</span><br><span class="line">TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz</span><br><span class="line">TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img</span><br><span class="line">BOARD_BOOTIMG_HEADER_VERSION := 2</span><br><span class="line">BOARD_KERNEL_BASE := 0x40078000</span><br><span class="line">BOARD_KERNEL_PAGESIZE := 2048</span><br><span class="line">BOARD_RAMDISK_OFFSET := 0x11a88000</span><br><span class="line">BOARD_KERNEL_TAGS_OFFSET := 0x07808000</span><br><span class="line">BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line">BOARD_KERNEL_IMAGE_NAME := Image.gz</span><br><span class="line">TARGET_KERNEL_ARCH := arm64</span><br><span class="line">TARGET_KERNEL_HEADER_ARCH := arm64</span><br><span class="line">TARGET_KERNEL_SOURCE := kernel/duoqin/k61v1_64_bsp</span><br><span class="line">TARGET_KERNEL_CONFIG := k61v1_64_bsp_defconfig</span><br><span class="line"></span><br><span class="line"># Platform</span><br><span class="line">TARGET_BOARD_PLATFORM := mt6761</span><br><span class="line"></span><br><span class="line"># Hack: prevent anti rollback</span><br><span class="line">PLATFORM_SECURITY_PATCH := 2099-12-31</span><br><span class="line">VENDOR_SECURITY_PATCH := 2099-12-31</span><br><span class="line">PLATFORM_VERSION := 16.1.0</span><br><span class="line"></span><br><span class="line"># TWRP Configuration</span><br><span class="line">TW_THEME := portrait_hdpi</span><br><span class="line">TW_EXTRA_LANGUAGES := true</span><br><span class="line">TW_SCREEN_BLANK_ON_BOOT := true</span><br><span class="line">TW_INPUT_BLACKLIST := &quot;hbtp_vm&quot;</span><br><span class="line">TW_USE_TOOLBOX := true</span><br><span class="line"></span><br><span class="line"># Logcat</span><br><span class="line">TWRP_INCLUDE_LOGCAT := true</span><br><span class="line">TARGET_USES_LOGD := true</span><br><span class="line"></span><br><span class="line"># Dynamic Partition</span><br><span class="line">BOARD_SUPER_PARTITION_SIZE := 4294967296</span><br><span class="line">BOARD_SUPER_PARTITION_GROUPS := main</span><br><span class="line">BOARD_MAIN_SIZE := 4294967296</span><br><span class="line">BOARD_MAIN_PARTITION_LIST := product vendor system</span><br><span class="line"></span><br><span class="line"># System as root</span><br><span class="line">BOARD_BUILD_SYSTEM_ROOT_IMAGE := false</span><br><span class="line"></span><br><span class="line"># AVB</span><br><span class="line">BOARD_AVB_ENABLE := true</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM := system product</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR := vendor</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2</span><br><span class="line">BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3</span><br><span class="line"></span><br><span class="line"># fstab</span><br><span class="line">TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab</span><br><span class="line">TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery.wipe</span><br></pre></td></tr></table></figure>
+
+<p>上面那些#开头的注释不用管<br>首先是第19行<br><code>DEVICE_PATH := device/duoqin/k61v1</code><br>将其改成<br><code>DEVICE_PATH := device/品牌英文名称/机型代号</code><br>这里的作用是声明你dt所存放的位置</p>
+<p>然后是20-38行一般是不用动的，一个的作用是跳过依赖检查，还有个是声明CPU类型，两个都做了通用化处理，各位直接去我提供的例子里面复制就好</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"># For building with minimal manifest</span><br><span class="line">ALLOW_MISSING_DEPENDENCIES := true</span><br><span class="line"></span><br><span class="line"># Architecture</span><br><span class="line">TARGET_ARCH := arm64</span><br><span class="line">TARGET_ARCH_VARIANT := armv8-a</span><br><span class="line">TARGET_CPU_ABI := arm64-v8a</span><br><span class="line">TARGET_CPU_ABI2 :=</span><br><span class="line">TARGET_CPU_VARIANT := generic</span><br><span class="line"></span><br><span class="line">TARGET_2ND_ARCH := arm</span><br><span class="line">TARGET_2ND_ARCH_VARIANT := armv7-a-neon</span><br><span class="line">TARGET_2ND_CPU_ABI := armeabi-v7a</span><br><span class="line">TARGET_2ND_CPU_ABI2 := armeabi</span><br><span class="line">TARGET_2ND_CPU_VARIANT := generic</span><br><span class="line">TARGET_BOARD_SUFFIX := _64</span><br><span class="line">TARGET_USES_64_BIT_BINDER := true</span><br></pre></td></tr></table></figure>
+
+<p>接着是第40行<br><code>TARGET_OTA_ASSERT_DEVICE := k61v1</code><br>将其改为<br><code>TARGET_OTA_ASSERT_DEVICE :=</code> 你的机型代号，注意空格<br>这里的作用是验证刷机包的机型验证，有的时候你刷机碰到错误7就是因为这里的机型和你刷机包里面刷机脚本的机型对不上</p>
+<p>下面这部分42-49行也不用动，也做了通用化处理，这步是告诉你twrp源码的分区文件格式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># File systems</span><br><span class="line">BOARD_HAS_LARGE_FILESYSTEM := true</span><br><span class="line">BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4</span><br><span class="line">BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4</span><br><span class="line">BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4</span><br><span class="line">TARGET_USERIMAGES_USE_EXT4 := true</span><br><span class="line">TARGET_USERIMAGES_USE_F2FS := true</span><br><span class="line">TARGET_COPY_OUT_VENDOR := vendor</span><br></pre></td></tr></table></figure>
+
+<p>然后就是内核部分啦，这部分改动的比较多<br>首先是内核的cmdline部分，你不懂啥意思？没关系跟着我做就好啦<br>首先找到刚才找预编译内核的那个目录，找到这个后面带cmdline的文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/8.PNG"></p>
+<p>然后点击他选择编辑文本，将里面的话复制出来</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Xpsoted/blog_provider@main/9.PNG"></p>
+<p>然后将56行的<br><code>BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user</code><br>改为<br><code>BOARD_KERNEL_CMDLINE := 你复制的，注意空格</code></p>
+<p>接着看57-58行</p>
+<p>下面这两个实在声明你预编译内核的位置，如果你还多个dtbo.img就在<br><code>TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img</code>的下面多➕一行<br><code>TARGET_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img</code><br>然后再➕一行<br><code>BOARD_INCLUDE_RECOVERY_DTBO := true</code><br>这里是声明你使用dtbo.img而且告诉twrp dtbo的位置<br>下面的部分不用管，直到72-73</p>
+<p>将<br><code>TARGET_KERNEL_SOURCE := kernel/duoqin/k61v1_64_bsp</code><br><code>TARGET_KERNEL_CONFIG := k61v1_64_bsp_defconfig</code><br>改为<br><code>TARGET_KERNEL_SOURCE := kernel/厂家英文名/机型代号</code><br><code>TARGET_KERNEL_CONFIG := 机型代号_defconfig</code><br>这步是在说明内核源码的位置<br>接下来是75-76行</p>
+<p><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := mt6761</code><br>将这里改为<br><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := 你的soc型号</code>，比如高通855就写sm8150，865就是sm8250</p>
+<p>下面这部分（78-92行）不用动，这部分都是写了一些自适应分辨率和，默认启动logcat之类的参数，也是可以直接复制的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># Hack: prevent anti rollback</span><br><span class="line">PLATFORM_SECURITY_PATCH := 2099-12-31</span><br><span class="line">VENDOR_SECURITY_PATCH := 2099-12-31</span><br><span class="line">PLATFORM_VERSION := 16.1.0</span><br><span class="line"></span><br><span class="line"># TWRP Configuration</span><br><span class="line">TW_THEME := portrait_hdpi</span><br><span class="line">TW_EXTRA_LANGUAGES := true</span><br><span class="line">TW_SCREEN_BLANK_ON_BOOT := true</span><br><span class="line">TW_INPUT_BLACKLIST := &quot;hbtp_vm&quot;</span><br><span class="line">TW_USE_TOOLBOX := true</span><br><span class="line"></span><br><span class="line"># Logcat</span><br><span class="line">TWRP_INCLUDE_LOGCAT := true</span><br><span class="line">TARGET_USES_LOGD := true</span><br></pre></td></tr></table></figure>
+
+<p>接下来这步就在不同的手机上有不同的区别了，首先确定你的手机是否为动态分区<br>如果是动态分区搞清楚整个super分区大小，并搞清楚整个super里面都包含哪些分区</p>
+<p>搞清楚后将94-98行的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Dynamic Partition</span><br><span class="line"></span><br><span class="line">BOARD_SUPER_PARTITION_SIZE := 4294967296</span><br><span class="line">BOARD_SUPER_PARTITION_GROUPS := main</span><br><span class="line">BOARD_MAIN_SIZE := 4294967296</span><br><span class="line">BOARD_MAIN_PARTITION_LIST := product vendor system</span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Dynamic Partition</span><br><span class="line"></span><br><span class="line">BOARD_SUPER_PARTITION_SIZE := super分区大小（字节为单位）</span><br><span class="line">BOARD_SUPER_PARTITION_GROUPS := main</span><br><span class="line">BOARD_MAIN_SIZE := super分区大小（字节为单位）</span><br><span class="line">BOARD_MAIN_PARTITION_LIST := 包含在super里面的分区名称，用空格间隔</span><br></pre></td></tr></table></figure>
+
+<p>如果你不是动态分区直接把这些删掉就好<br>下面这部分基本可以照抄了</p>
+<p>如果你的设备没有avb验证那么可以把删掉</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># AVB</span><br><span class="line">BOARD_AVB_ENABLE := true</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM := system product</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR := vendor</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2</span><br><span class="line">BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</span><br><span class="line">BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048</span><br><span class="line">BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</span><br><span class="line">BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3</span><br></pre></td></tr></table></figure>
+
+<p>最后还有些东西需要根据你自己的机器加下</p>
+<p>确定你的手机是否有独立rec分区，这步我让你们在准备工作中做了，如果没有rec分区在最后加上这两行</p>
+<p><code>BOARD_USES_RECOVERY_AS_BOOT :=  true</code></p>
+<p><code>TARGET_NO_RECOVERY := true</code></p>
+<p>马上就到这个文件的最后一部啦<br>加上</p>
+<p># Partitions<br><code>BOARD_FLASH_BLOCK_SIZE := 131072</code><br><code>BOARD_BOOTIMAGE_PARTITION_SIZE := 你boot分区的大小</code></p>
+<p>上面的数字是32mb，还是已字节为单位，如果你是我上面说的第一种分区就直接扬了这行</p>
+<p><strong><code>device.mk</code></strong><br>如果你既不是动态分区，也不是第二种分区，那么这步你就跳过，直接看下一步<br>如果你是vab分区那么直接把我这段复制过去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">   </span><br><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line">LOCAL_PATH := device/duoqin/k61v1</span><br><span class="line"></span><br><span class="line"># API</span><br><span class="line">PRODUCT_SHIPPING_API_LEVEL := 30</span><br><span class="line"></span><br><span class="line"># Dynamic</span><br><span class="line">PRODUCT_USE_DYNAMIC_PARTITIONS := true</span><br><span class="line"></span><br><span class="line"># Enable project quotas and casefolding for emulated storage without sdcardfs</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)</span><br><span class="line"># A/B   </span><br><span class="line">ENABLE_VIRTUAL_AB := true</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)</span><br><span class="line"></span><br><span class="line"># A/B</span><br><span class="line">AB_OTA_UPDATER := true</span><br><span class="line">AB_OTA_PARTITIONS += \</span><br><span class="line">    boot \</span><br><span class="line">    system \</span><br><span class="line">    product \</span><br><span class="line">    dtbo \</span><br><span class="line">    vbmeta \</span><br><span class="line">    vbmeta_system \</span><br><span class="line">    vendor</span><br><span class="line"></span><br><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    otapreopt_script \</span><br><span class="line">    update_engine \</span><br><span class="line">    update_engine_sideload \</span><br><span class="line">    update_verifier</span><br><span class="line"></span><br><span class="line">AB_OTA_POSTINSTALL_CONFIG += \</span><br><span class="line">    RUN_POSTINSTALL_system=true \</span><br><span class="line">    POSTINSTALL_PATH_system=system/bin/otapreopt_script \</span><br><span class="line">    FILESYSTEM_TYPE_system=ext4 \</span><br><span class="line">    POSTINSTALL_OPTIONAL_system=true</span><br><span class="line"></span><br><span class="line"># Boot control HAL</span><br><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    android.hardware.boot@1.1-impl.recovery</span><br></pre></td></tr></table></figure>
+
+<p>只需要改动<code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为<code>LOCAL_PATH := device/</code>厂家英文名&#x2F;机型代号</p>
+<p>如果你只是动态分区，那么需要你保留下面这部分，其他全部删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line">LOCAL_PATH := device/duoqin/k61v1</span><br><span class="line"></span><br><span class="line"># API</span><br><span class="line">PRODUCT_SHIPPING_API_LEVEL := 30</span><br><span class="line"></span><br><span class="line"># Dynamic</span><br><span class="line">PRODUCT_USE_DYNAMIC_PARTITIONS := true</span><br></pre></td></tr></table></figure>
+
+<p>如果你不是动态分区只是ab分区<br>删掉下面这部分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># API</span><br><span class="line">PRODUCT_SHIPPING_API_LEVEL := 30</span><br><span class="line"></span><br><span class="line"># Dynamic</span><br><span class="line">PRODUCT_USE_DYNAMIC_PARTITIONS := true</span><br><span class="line"></span><br><span class="line"># Enable project quotas and casefolding for emulated storage without sdcardfs</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)</span><br><span class="line"># A/B   </span><br><span class="line">ENABLE_VIRTUAL_AB := true</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)</span><br></pre></td></tr></table></figure>
+
+<p>只需要改动<code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为<code>LOCAL_PATH := device/</code>厂家英文名&#x2F;机型代号<br>并将</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">AB_OTA_PARTITIONS += \</span><br><span class="line">boot \</span><br><span class="line">system \</span><br><span class="line">product \</span><br><span class="line">dtbo \</span><br><span class="line">vbmeta \</span><br><span class="line">vbmeta_system \</span><br><span class="line">vendor</span><br></pre></td></tr></table></figure>
+
+<p>改成你机器所存在的AB分区</p>
+<p><strong><code>twrp_你机型代号.mk</code></strong></p>
+<p>这步很简单，我先把全部代码贴上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Inherit from those products. Most specific first.</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)</span><br><span class="line"></span><br><span class="line"># Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)</span><br><span class="line"></span><br><span class="line"># Inherit from our custom product configuration</span><br><span class="line">$(call inherit-product, vendor/twrp/config/common.mk)</span><br><span class="line"></span><br><span class="line"># Device specific configs</span><br><span class="line">$(call inherit-product, device/duoqin/k61v1/device.mk)</span><br><span class="line"></span><br><span class="line"># Device identifier. This must come after all inclusions</span><br><span class="line">PRODUCT_DEVICE := k61v1</span><br><span class="line">PRODUCT_NAME := twrp_k61v1</span><br><span class="line">PRODUCT_BRAND := Qin</span><br><span class="line">PRODUCT_MODEL := Qin</span><br><span class="line">PRODUCT_MANUFACTURER := duoqin</span><br><span class="line">PRODUCT_RELEASE_NAME := Qin</span><br></pre></td></tr></table></figure>
+
+<p>改为</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># Copyright (C) 2020 The Android Open Source Project</span><br><span class="line"># Copyright (C) 2020 The TWRP Open Source Project</span><br><span class="line"># Copyright (C) 2020 SebaUbuntu&#x27;s TWRP device tree generator</span><br><span class="line">#</span><br><span class="line"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span><br><span class="line"># you may not use this file except in compliance with the License.</span><br><span class="line"># You may obtain a copy of the License at</span><br><span class="line">#</span><br><span class="line">#     http://www.apache.org/licenses/LICENSE-2.0</span><br><span class="line">#</span><br><span class="line"># Unless required by applicable law or agreed to in writing, software</span><br><span class="line"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span><br><span class="line"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span><br><span class="line"># See the License for the specific language governing permissions and</span><br><span class="line"># limitations under the License.</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Inherit from those products. Most specific first.</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)</span><br><span class="line"></span><br><span class="line"># Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.</span><br><span class="line">$(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)</span><br><span class="line"></span><br><span class="line"># Inherit from our custom product configuration</span><br><span class="line">$(call inherit-product, vendor/twrp/config/common.mk)</span><br><span class="line"></span><br><span class="line"># Device specific configs</span><br><span class="line">$(call inherit-product, device/厂家英文名/机型代号/device.mk)</span><br><span class="line"></span><br><span class="line"># Device identifier. This must come after all inclusions</span><br><span class="line">PRODUCT_DEVICE := 机型代号</span><br><span class="line">PRODUCT_NAME := twrp_机型代号</span><br><span class="line">PRODUCT_BRAND := 厂家英文名</span><br><span class="line">PRODUCT_MODEL := 厂家英文名</span><br><span class="line">PRODUCT_MANUFACTURER := 厂家英文名</span><br><span class="line">PRODUCT_RELEASE_NAME := 厂家英文名</span><br></pre></td></tr></table></figure>
+
+<p>好了，dt到此你就写好啦，站起来活动活动，就差编译你就大功告成了<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_64_shounuehuaji.png" alt="受虐滑稽"><br>悄悄告诉你们其实我在上个月写了个dt生成器<img src="http://static.coolapk.com/emoticons/v9/coolapk_emotion_64_shounuehuaji.png" alt="受虐滑稽">，稍等先别揍我，要学会知其所以然</p>
+
+	</div>
+	
+	<div class="mdui-divider"></div>
+	<div class="pageEnd mdui-center mdui-card">
+		<button class="mdui-fab mdui-fab-mini mdui-ripple mdui-color-theme-accent shareBtn" mdui-menu="{target: '#shareMenu', align: 'left' ,position: 'top'}">
+			<i class="mdui-icon material-icons">&#xe80d;</i>
+		</button>
+		<ul class="mdui-menu" id="shareMenu">
+			<li class="mdui-menu-item">
+				<a href="https://service.weibo.com/share/share.php?appkey=&title=%E6%89%8B%E6%9C%BA%E6%B2%A1Twrp%EF%BC%9F%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%B1%E5%A5%BD%E5%95%A6%EF%BC%88%E8%87%AA%E5%B7%B1%E9%80%82%E9%85%8Ddevice%20tree%EF%BC%89&url=https://xpsoted.github.io/2022/05/18/%25E6%2589%258B%25E6%259C%25BA%25E6%25B2%25A1Twrp%25EF%25BC%259F%25E8%2587%25AA%25E5%25B7%25B1%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AA%25E5%25B0%25B1%25E5%25A5%25BD%25E5%2595%25A6%25EF%25BC%2588%25E8%2587%25AA%25E5%25B7%25B1%25E9%2580%2582%25E9%2585%258Ddevice-tree%25EF%25BC%2589/&pic=undefined&searchPic=false&style=simple" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 微博 </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://connect.qq.com/widget/shareqq/index.html?site=SKDushow's%20Pages&title=%E6%89%8B%E6%9C%BA%E6%B2%A1Twrp%EF%BC%9F%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%B1%E5%A5%BD%E5%95%A6%EF%BC%88%E8%87%AA%E5%B7%B1%E9%80%82%E9%85%8Ddevice%20tree%EF%BC%89&summary=%E5%89%8D%E8%A8%80%E5%A4%A7%E5%AE%B6%E5%A5%BD%E8%AF%B6%EF%BC%8C%E5%BE%88%E5%A4%9A%E6%9C%BA%E5%9E%8B%EF%BC%8C%E5%B0%A4%E5%85%B6%E6%98%AF%E6%96%B0%E6%9C%BA%E5%99%A8%E6%B2%A1%E6%9C%89Twrp%EF%BC%8C%E5%BE%88%E5%9B%B0%E9%9A%BE%E5%91%90%EF%BC%8C%0A%E4%BD%86%E6%98%AF%E5%91%A2%E7%94%B1%E4%BA%8Evab%E6%88%96%E8%80%85%E5%95%A5%E7%9A%84%E5%8F%88%E5%AF%BC%E8%87%B4%E6%B2%A1%E6%B3%95%E7%A7%BB%E6%A4%8D%EF%BC%8C%E5%BE%88%E5%A4%9A%E4%BA%BA%E5%91%A2%E6%83%B3%E6%90%9E%E7%BC%96%E8%AF%91%E5%8F%88%E8%8B%A6%E4%BA%8E%E6%B2%A1%E7%94%B5%E8%84%91%EF%BC%8C%E6%B2%A1dt%EF%BC%8C%0A%E6%89%80%E4%BB%A5%E5%91%A2%E6%88%91%E4%BB%8A%E5%A4%A9%E5%B0%B1%E6%95%99%E6%95%99%E5%90%84%E4%BD%8D%E5%A6%82%E4%BD%95%E7%94%A8%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AATwrp%E5%B9%B6%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E8%BF%9B%E8%A1%8C%E7%BC%96%E8%AF%91%E6%93%8D%E4%BD%9C%EF%BC%8C%E6%88%91%E7%9B%B8%E4%BF%A1%E6%88%91%E7%9A%84%E6%95%99%E7%A8%8B%E4%BA%BA%E7%B1%BB%E9%83%BD%E5%8F%AF%E4%BB%A5%E7%9C%8B%E6%87%82%0A%EF%BC%88%E5%BD%93%E7%84%B6%E5%89%8D%E6%8F%90%E4%BD%A0%E8%A6%81%E6%9C%89%E4%B8%80%E4%BA%9B%E5%88%B7%E6%9C%BA%E5%9F%BA%E7%A1%80%EF%BC%8C%E8%80%8C%E4%B8%94%E6%88%91%E7%A1%AE%E4%BF%A1%E6%88%91%E5%9C%A8%E6%96%87%E4%B8%AD%E6%89%80%E7%94%A8%E7%9A%84%E4%B8%93%E4%B8%9A%E5%90%8D%E8%AF%8D%E9%83%BD%E5%8F%AF%E4%BB%A5%E5%9C%A8%E7%99%BE%E5%BA%A6%E9%87%8C%E9%9D%A2%E6%90%9C%E5%88%B0%EF%BC%8C%E6%89%80%E4%BB%A5%E4%BD%A0%E5%8F%AA%E8%A6%81%E8%AE%A4%E7%9C%9F+%E7%BB%86%E5%BF%83%E4%B8%80%E5%AE%9A%E5%8F%AF%E4%BB%A5%E5%AD%A6%E6%87%82%E5%93%A6%EF%BC%89%0A%E4%B8%80%EF%BC%8C%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C1.%E4%BA%86%E8%A7%A3%E4%BD%A0%E6%89%8B%E6%9C%BA%E7%9A%84%E5%88%86%E5%8C%BA%EF%BC%88%E5%8F%AF%E4%BB%A5%E7%94%A8%E3%80%90%E5%BA%95%E5%B1%82%E6%8E%A2%E6%B5%8B%E5%99%A8%E3%80%91%20%E6%9D%A5%E6%9F%A5%E7%9C%8B%EF%BC%89%E7%AE%80%E5%8D%95%E6%9D%A5%E8%AE%B2%E5%8F%AF%E4%BB%A5%E5%88%86%E4%B8%BA%E6%9C%80%E7%9B%B4%E8%A7%82%E7%9A%84%E4%B8%A4%E7%B1%BB%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%98%AF%E6%9C%89%E7%8B%AC%E7%AB%8Brecovery%E5%88%86%E5%8C%BA%EF%BC%8C%E8%BF%99%E7%A7%8D..." target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 QQ </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="javascript:void(0)" class="mdui-ripple" mdui-dialog="{target: '#shareToWechatQRCodeDialog'}">分享到 微信 </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://xpsoted.github.io/2022/05/18/%25E6%2589%258B%25E6%259C%25BA%25E6%25B2%25A1Twrp%25EF%25BC%259F%25E8%2587%25AA%25E5%25B7%25B1%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AA%25E5%25B0%25B1%25E5%25A5%25BD%25E5%2595%25A6%25EF%25BC%2588%25E8%2587%25AA%25E5%25B7%25B1%25E9%2580%2582%25E9%2585%258Ddevice-tree%25EF%25BC%2589/&title=%E6%89%8B%E6%9C%BA%E6%B2%A1Twrp%EF%BC%9F%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%B1%E5%A5%BD%E5%95%A6%EF%BC%88%E8%87%AA%E5%B7%B1%E9%80%82%E9%85%8Ddevice%20tree%EF%BC%89&content=utf-8" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 QQ空间 </a>
+			</li>
+			<li class="mdui-divider"></li>
+			<li class="mdui-menu-item">
+				<a href="https://telegram.me/share/url?url=https://xpsoted.github.io/2022/05/18/%25E6%2589%258B%25E6%259C%25BA%25E6%25B2%25A1Twrp%25EF%25BC%259F%25E8%2587%25AA%25E5%25B7%25B1%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AA%25E5%25B0%25B1%25E5%25A5%25BD%25E5%2595%25A6%25EF%25BC%2588%25E8%2587%25AA%25E5%25B7%25B1%25E9%2580%2582%25E9%2585%258Ddevice-tree%25EF%25BC%2589/&text=%E6%89%8B%E6%9C%BA%E6%B2%A1Twrp%EF%BC%9F%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%B1%E5%A5%BD%E5%95%A6%EF%BC%88%E8%87%AA%E5%B7%B1%E9%80%82%E9%85%8Ddevice%20tree%EF%BC%89" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 Telegram </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a target="_blank" rel="noopener" href="https://www.facebook.com/sharer.php?u=https://xpsoted.github.io/2022/05/18/%25E6%2589%258B%25E6%259C%25BA%25E6%25B2%25A1Twrp%25EF%25BC%259F%25E8%2587%25AA%25E5%25B7%25B1%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AA%25E5%25B0%25B1%25E5%25A5%25BD%25E5%2595%25A6%25EF%25BC%2588%25E8%2587%25AA%25E5%25B7%25B1%25E9%2580%2582%25E9%2585%258Ddevice-tree%25EF%25BC%2589/" class="mdui-ripple">分享到 Facebook </a>
+			</li>
+			<li class="mdui-menu-item">
+				<a href="https://twitter.com/intent/tweet?text=%E6%89%8B%E6%9C%BA%E6%B2%A1Twrp%EF%BC%9F%E8%87%AA%E5%B7%B1%E5%86%99%E4%B8%80%E4%B8%AA%E5%B0%B1%E5%A5%BD%E5%95%A6%EF%BC%88%E8%87%AA%E5%B7%B1%E9%80%82%E9%85%8Ddevice%20tree%EF%BC%89&url=https://xpsoted.github.io/2022/05/18/%25E6%2589%258B%25E6%259C%25BA%25E6%25B2%25A1Twrp%25EF%25BC%259F%25E8%2587%25AA%25E5%25B7%25B1%25E5%2586%2599%25E4%25B8%2580%25E4%25B8%25AA%25E5%25B0%25B1%25E5%25A5%25BD%25E5%2595%25A6%25EF%25BC%2588%25E8%2587%25AA%25E5%25B7%25B1%25E9%2580%2582%25E9%2585%258Ddevice-tree%25EF%25BC%2589/" target="_blank" rel="noopener noreferrer" class="mdui-ripple">分享到 Twitter </a>
+			</li>
+		</ul>
+		<div class="mdui-dialog" id="shareToWechatQRCodeDialog">
+			<div class="mdui-container mdui-text-color-gray mdui-color-white shareToWechatQRCodeOuterContainer">
+				<div id="shareToWechatQRCodeContainer"></div>
+				<i class="mdui-icon material-icons">&#xe80d;</i> 使用微信扫描后在微信内分享
+			</div>
+			<div class="mdui-container">
+				<button class="mdui-btn mdui-ripple mdui-text-color-theme-accent mdui-center" mdui-dialog-close>关闭</button>
+			</div>
+		</div>
+		
+			<div class="pageEndText mdui-card-actions mdui-typo">
+				END
+			</div>
+		
+		<div class="postTags">
+			<i class="mdui-icon material-icons mdui-text-color-theme-secondary">&#xe54e;</i>
+			
+				无标签
+			
+		</div>
+		
+		<div class="nav">
+			
+			
+				<a rel="next" href="/2022/05/17/%E9%83%A8%E5%88%86%E4%B8%89%E6%98%9F%E6%9C%BA%E5%9E%8B%E6%97%A0%E8%A7%86%E5%9F%BA%E5%B8%A6%E7%89%88%E6%9C%AC%E7%9B%B4%E6%8E%A5%E9%99%8D%E7%BA%A7/" class="mdui-text-color-theme-secondary">
+					<span>部分三星机型无视基带版本直接降级</span>
+					<i class="mdui-icon material-icons">&#xe315;</i>
+				</a>
+			
+		</div>
+	</div>
+	<svg class="mdui-fab-fixed" id="mdxReadProgress" width="56" height="56" viewBox="0 0 56 56">
+		<circle id="mdxReadProgressRing" cx="28" cy="28" r="26.5" stroke-width="2.5" stroke="rgba(255,255,255,.6)" fill="none"></circle>
+	</svg>
+	
+
+	<script src="https://utteranc.es/client.js"
+        repo="Xpsoted/Xpsoted.github.io"
+        issue-term="pathname"
+        label=""
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
+ 
+</div> 
+			 
+		</div>
+		<footer class="footer mdui-text-color-theme-secondary">
+	<div class="footerUpperLayer">
+		<div class="title">
+			<a href="https://Xpsoted.github.io" class="mdui-text-color-theme-secondary">SKDushow's Pages</a>
+		</div>
+		<div class="detail">
+			<div class="text">
+				
+				
+					
+					<div class="contact">
+						
+							<a target="_blank" rel="noopener" href="https://github.com/Yuameshi/hexo-theme-mdx" class="mdui-text-color-theme-secondary">
+								MDx
+							</a>
+						
+							<a target="_blank" rel="noopener" href="https://github.com/Yuameshi" class="mdui-text-color-theme-secondary">
+								GitHub
+							</a>
+						
+					</div>
+				
+			</div>
+			<div class="copyrights">
+				&copy; 2022 - 2022 SKDushow
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="footerLowerLayer">
+		<div class="left">
+			
+				<a href="https://hexo.io" class="mdui-text-color-theme-secondary" target="_blank">由 Hexo 强力驱动</a>
+			
+			
+			
+		</div>
+		<div class="right">
+			
+			
+			
+		</div>
+	</div>
+</footer>
+		 
+		<div class="mdui-dialog" id="searchDialog">
+			<div class="mdui-textfield mdui-textfield-floating-label">
+				<label class="mdui-textfield-label" for="searchInputBox">搜点什么...</label>
+				<input class="mdui-textfield-input" type="text" id="searchInputBox" />
+			</div>
+			<div class="mdui-container" id="searchResultContainer"></div>
+		</div>
+		 
+		<button id="goToTopBtn" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent">
+			<i class="mdui-icon material-icons">&#xe316;</i>
+		</button>
+		 
+		
+			<script>
+				if (localStorage.getItem('checkedGPDRCookieAlert') !== 'true') {
+					window.addEventListener('load', function () {
+						mdui.snackbar({
+							message: `此网站使用Cookie来改善您的体验。`,
+							buttonText: "了解",
+							timeout: 0,
+							position: 'right-bottom',
+							closeOnOutsideClick: false,
+							onButtonClick: function(){
+								localStorage.setItem('checkedGPDRCookieAlert','true');
+							},
+						});
+					});
+				}
+			</script>
+		
+		<!-- 一言API -->
+        <!-- 现代写法，推荐 -->
+        <!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
+        <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
+        <!--End-->
+		<script>
+			fetch('https://v1.hitokoto.cn')
+			  .then(function (res){
+				return res.json();
+			  })
+			  .then(function (data) {
+				var hitokoto = document.getElementById('hitokoto');
+				hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
+			  })
+			  .catch(function (err) {
+				console.error(err);
+			  })
+		</script>
+	</body>
+</html>
