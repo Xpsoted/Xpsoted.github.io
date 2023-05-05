@@ -1,1 +1,769 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><link href="/static/css/chunk-libs.eebac533.css" rel="stylesheet"><link href="/static/css/app.0d31776f.css" rel="stylesheet"><!-- hexo injector head_end start --><script rel="prefetch" async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/components/prism-core.js" data-manual></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/themes/prism.min.css"/><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/prism/1.23.0/plugins/toolbar/prism-toolbar.min.css"/><link rel="stylesheet" href="https://fonts.loli.net/css?family=Rubik" /><script rel="preload" src="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.js"></script><link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/gitalk/1.7.2/gitalk.min.css"/><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body id="body-container"><noscript><strong>We're sorry but Aurora Blog doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script>(function(e){function t(t){for(var a,n,u=t[0],i=t[1],c=t[2],l=0,p=[];l<u.length;l++)n=u[l],Object.prototype.hasOwnProperty.call(o,n)&&o[n]&&p.push(o[n][0]),o[n]=0;for(a in i)Object.prototype.hasOwnProperty.call(i,a)&&(e[a]=i[a]);f&&f(t);while(p.length)p.shift()();return s.push.apply(s,c||[]),r()}function r(){for(var e,t=0;t<s.length;t++){for(var r=s[t],a=!0,n=1;n<r.length;n++){var u=r[n];0!==o[u]&&(a=!1)}a&&(s.splice(t--,1),e=i(i.s=r[0]))}return e}var a={},n={runtime:0},o={runtime:0},s=[];function u(e){return i.p+"static/js/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"00d640a8",about:"024aacd1",archives:"574ac664",categories:"90aa5475",page:"a02618ad",post:"cebfbaa4",result:"39470350",tags:"2ad613f5"}[e]+".js"}function i(t){if(a[t])return a[t].exports;var r=a[t]={i:t,l:!1,exports:{}};return e[t].call(r.exports,r,r.exports,i),r.l=!0,r.exports}i.e=function(e){var t=[],r={404:1,about:1,archives:1,categories:1,page:1,post:1,result:1,tags:1};n[e]?t.push(n[e]):0!==n[e]&&r[e]&&t.push(n[e]=new Promise((function(t,r){for(var a="static/css/"+({404:"404",about:"about",archives:"archives",categories:"categories",page:"page",post:"post",result:"result",tags:"tags"}[e]||e)+"."+{404:"1a6cd5bd",about:"32dfa3b0",archives:"c0d49bd5",categories:"10e2be12",page:"749ad047",post:"9f951a60",result:"10e2be12",tags:"10e2be12"}[e]+".css",o=i.p+a,s=document.getElementsByTagName("link"),u=0;u<s.length;u++){var c=s[u],l=c.getAttribute("data-href")||c.getAttribute("href");if("stylesheet"===c.rel&&(l===a||l===o))return t()}var p=document.getElementsByTagName("style");for(u=0;u<p.length;u++){c=p[u],l=c.getAttribute("data-href");if(l===a||l===o)return t()}var f=document.createElement("link");f.rel="stylesheet",f.type="text/css",f.onload=t,f.onerror=function(t){var a=t&&t.target&&t.target.src||o,s=new Error("Loading CSS chunk "+e+" failed.\n("+a+")");s.code="CSS_CHUNK_LOAD_FAILED",s.request=a,delete n[e],f.parentNode.removeChild(f),r(s)},f.href=o;var d=document.getElementsByTagName("head")[0];d.appendChild(f)})).then((function(){n[e]=0})));var a=o[e];if(0!==a)if(a)t.push(a[2]);else{var s=new Promise((function(t,r){a=o[e]=[t,r]}));t.push(a[2]=s);var c,l=document.createElement("script");l.charset="utf-8",l.timeout=120,i.nc&&l.setAttribute("nonce",i.nc),l.src=u(e);var p=new Error;c=function(t){l.onerror=l.onload=null,clearTimeout(f);var r=o[e];if(0!==r){if(r){var a=t&&("load"===t.type?"missing":t.type),n=t&&t.target&&t.target.src;p.message="Loading chunk "+e+" failed.\n("+a+": "+n+")",p.name="ChunkLoadError",p.type=a,p.request=n,r[1](p)}o[e]=void 0}};var f=setTimeout((function(){c({type:"timeout",target:l})}),12e4);l.onerror=l.onload=c,document.head.appendChild(l)}return Promise.all(t)},i.m=e,i.c=a,i.d=function(e,t,r){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},i.r=function(e){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"===typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var a in e)i.d(r,a,function(t){return e[t]}.bind(null,a));return r},i.n=function(e){var t=e&&e.__esModule?function(){return e["default"]}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="/",i.oe=function(e){throw console.error(e),e};var c=window["webpackJsonp"]=window["webpackJsonp"]||[],l=c.push.bind(c);c.push=t,c=c.slice();for(var p=0;p<c.length;p++)t(c[p]);var f=l;r()})([]);</script><script src="/static/js/chunk-libs.dc6146cd.js"></script><script src="/static/js/app.6d2c358d.js"></script></body></html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="SKDushow">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="大家好诶，很多机型，尤其是新机器没有Twrp，很困难呐，但是呢由于vab或者啥的又导致没法移植，很多人呢想搞编译又苦于没电脑，没dt，所以呢我今天就教教各位如何用手写一个Twrp并在手机上进行编译操作，我相信我的教程人类都可以看懂，当然前提你要有一些刷机基础，而且我确信我在文中所用的专业名词都可以在百度里面搜到，所以你只要认真+细心一定可以学懂哦 一，准备工作1.了解你手机的分区（可以用【底层探测">
+<meta property="og:type" content="article">
+<meta property="og:title" content="0基础编写TWRP的Device Tree">
+<meta property="og:url" content="https://xpsoted.github.io/post/hello-world.html">
+<meta property="og:site_name" content="SKDushow&#39;s Blog">
+<meta property="og:description" content="大家好诶，很多机型，尤其是新机器没有Twrp，很困难呐，但是呢由于vab或者啥的又导致没法移植，很多人呢想搞编译又苦于没电脑，没dt，所以呢我今天就教教各位如何用手写一个Twrp并在手机上进行编译操作，我相信我的教程人类都可以看懂，当然前提你要有一些刷机基础，而且我确信我在文中所用的专业名词都可以在百度里面搜到，所以你只要认真+细心一定可以学懂哦 一，准备工作1.了解你手机的分区（可以用【底层探测">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/Y1FgztZ2jdphlVI.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/RpMl8T4hYz16oaZ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/w9W8rozEvHmAln1.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/iVsDpohC3qdkXT2.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/WvtV6rQSRqNcaDh.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/Pun9LWXQtICzGdb.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/SIUscanpRqxjMbW.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/oVhDcsMSNdTZtOu.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/uyPfOhCAlqHNg2E.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/ng4MqzORBPoV7uA.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/8Xz3nbM4STq2p9B.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/d2zqkwTUfyiFMmO.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/2U4xeMnoDfWkwpC.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/1duJmktwhTn2bPI.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/RrlUeFhOYQo3xwV.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/DZ2hxvBM6o5GquJ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/d9CZUru3t5vsSq4.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/WJmRkBY4dL6rhxN.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/NBCPp1ZAJFTWboX.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/fJZ42vtio5uqCL9.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/jxSOBCw4hFiN1U6.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/ZrSyfRAtzxcduXY.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/HNV8vK4rd9POma2.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/mBMbZda9SYtlexi.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/EPg273HSaXxZh9t.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/bWN13dpTj4Pqh2e.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/aBgukZ2VopDjqv5.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/EcfdGamyqOlBMTZ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/KWdP8D1yLEFJk36.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/LtuOAP9Yk3yRGno.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/mNHyBEWJRMd3jQe.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/42x1R8qIpQHshrG.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/GTKOkqDwVIgmPlz.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/1OAJqUISBikR4sw.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/Zk2DhFXPQeRGuWU.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/doBVCDp3XTjxIS1.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/PpaDqM6bJgCkl9x.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/YGiEQ9Tf6pj8reP.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/TkKgfu7CqL94eJE.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/fIHzZmu5DYbdrnJ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/U2dSEZhPK9sOtAR.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/05/jZMNQ7xAFIlCo2J.png">
+<meta property="article:published_time" content="2023-05-05T09:33:45.819Z">
+<meta property="article:modified_time" content="2023-05-05T14:38:36.319Z">
+<meta property="article:author" content="SKDushow">
+<meta property="article:tag" content="twrp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/05/05/Y1FgztZ2jdphlVI.png">
+  
+  
+  
+  <title>0基础编写TWRP的Device Tree - SKDushow&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xpsoted.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>SKDushow的笔记本</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="0基础编写TWRP的Device Tree"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-05 17:33" pubdate>
+          2023年5月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          55 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">0基础编写TWRP的Device Tree</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>大家好诶，很多机型，尤其是新机器没有Twrp，很困难呐，但是呢由于vab或者啥的又导致没法移植，很多人呢想搞编译又苦于没电脑，没dt，所以呢我今天就教教各位如何用手写一个Twrp并在手机上进行编译操作，我相信我的教程人类都可以看懂，当然前提你要有一些刷机基础，而且我确信我在文中所用的专业名词都可以在百度里面搜到，所以你只要认真+细心一定可以学懂哦</p>
+<h3 id="一，准备工作"><a href="#一，准备工作" class="headerlink" title="一，准备工作"></a>一，准备工作</h3><h5 id="1-了解你手机的分区（可以用【底层探测器】-来查看）"><a href="#1-了解你手机的分区（可以用【底层探测器】-来查看）" class="headerlink" title="1.了解你手机的分区（可以用【底层探测器】 来查看）"></a>1.了解你手机的分区（可以用<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/net.imknown.android.forefrontinfo">【底层探测器】</a> 来查看）</h5><p><strong>第一种是有独立recovery分区</strong></p>
+<p>这种分区包含System As Root分区（Sar）近几年小米三星都应该用的这种分区<br>A only分区，老机型偏多</p>
+<p><strong>第二种是将recovery集成在boot分区里面</strong><br>A&#x2F;B分区（近几年新机，出场安卓8-10居多）<br>V-AB分区（出场安卓11机型居多）</p>
+<p><strong>其他：</strong></p>
+<p>要注意你的手机是否为动态分区，这点很重要跟后来的教程有关，一般v-ab都为动态分区，近两年新机大多都是动态分区</p>
+<p><img src="https://s2.loli.net/2023/05/05/Y1FgztZ2jdphlVI.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><em>比如我的LGV50就为AB分区</em></p>
+<h5 id="2-下载-x2F-提取你手机的官方刷机包，并解包"><a href="#2-下载-x2F-提取你手机的官方刷机包，并解包" class="headerlink" title="2.下载&#x2F;提取你手机的官方刷机包，并解包"></a>2.下载&#x2F;提取你手机的官方刷机包，并解包</h5><p><em>这点应该不会很难吧，各位但凡有刷机基础应该都可以办到</em></p>
+<p><strong>下载好的官方包</strong><br>如果你是我上面说的第一种分区就提取<code>recovery.img</code><br>如果你是第二种就提取<code>boot.img</code><br>无官方包提取我推荐这个工具<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/xzr.La.systemtoolbox">【镧·系统工具箱 2.0】</a></p>
+<p><img src="https://s2.loli.net/2023/05/05/RpMl8T4hYz16oaZ.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>现在就需要解包工具啦</strong><br>因为recovery.img和boot.img的解包方式是一样的，所以这两个解包工具是通用的，虽然我知道有很多很棒的免费解包工具，但是小白我还是推荐<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/com.nightmare">【魇·工具箱 - 镜像工具】</a>，虽然收费但是有独立gui确实很方便，以下的教程我将用这个工具</p>
+<p><strong>解包具体流程如下</strong></p>
+<p>找到boot分解这个选择（就算你的是recovery也是可以用这个的）</p>
+<p><img src="https://s2.loli.net/2023/05/05/w9W8rozEvHmAln1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>找到你提取的文件</p>
+<p><img src="https://s2.loli.net/2023/05/05/iVsDpohC3qdkXT2.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>点击后稍等片刻，出现这张图片后解包成功</p>
+<p><img src="https://s2.loli.net/2023/05/05/WvtV6rQSRqNcaDh.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后各位可以用<a target="_blank" rel="noopener" href="http://www.coolapk.com/apk/bin.mt.plus">【MT管理器】</a>（手机上做开发很推荐）找到<br>&#x2F;data&#x2F;data&#x2F;com.nightmare&#x2F;files&#x2F;home&#x2F;AIK-mobile&#x2F;<br>目录里面就是你解包完成后的文件</p>
+<p><img src="https://s2.loli.net/2023/05/05/Pun9LWXQtICzGdb.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><em>现在我也给各位讲讲这里面的两个文件夹分别是</em><br><strong>第一个是RamDisk文件夹</strong><br>各位点开后大概能看出这是一套和安卓系统非常相向的文件结构，其实recovery也是基于Linux开发的，你解开的就好比是recovery的system分区，这个东西要保留好，我们一会要从中提取很多文件!但是切忌不要尝试移动这个文件夹，因为这个文件夹里面有硬链接<br><em><strong>如果你随意移动可能会导致你现在的系统崩溃</strong></em></p>
+<p><img src="https://s2.loli.net/2023/05/05/SIUscanpRqxjMbW.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>第二个文件夹是split_img文件夹</strong><br>我在上面跟各位说过因为recovery也是基于Linux开发的一套系统<br>所以他也需要内核来进行启动，所以我们在这里面提取的就是你twrp要提取的内核啦</p>
+<p><img src="https://s2.loli.net/2023/05/05/oVhDcsMSNdTZtOu.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="二，开始编写dt"><a href="#二，开始编写dt" class="headerlink" title="二，开始编写dt"></a>二，开始编写dt</h3><h5 id="1-关于dt和编译你所需要了解的"><a href="#1-关于dt和编译你所需要了解的" class="headerlink" title="1.关于dt和编译你所需要了解的"></a>1.关于dt和编译你所需要了解的</h5><p>可能很多人不知道twrp是如何来的，这里我就给各位讲讲<br>如果你用的是正统的twrp制造方法，那么简单来讲可以分为两大步<br>第一步，编写device tree<br>第二步，编译twrp</p>
+<p><strong>twrp</strong>是一套完整的通用源码<br><strong>device tree</strong>呢就好比我们在里面写下关于我机器的各种特征，各种参数<br>然后twrp的源码来读取我们写的device tree，并根据我们写的参数来进行编译，生产你们平时用的twrp<br>而这步呢一般情况下就统称为编译</p>
+<p>我们来制造twrp时呢大多数时候是可以不用碰twrp源码，我们只需要写device tree就可以，然后进行编译，所以这一步我就来教各位如何写twrp的dt（device tree）</p>
+<h5 id="2-了解一个dt的文件结构"><a href="#2-了解一个dt的文件结构" class="headerlink" title="2.了解一个dt的文件结构"></a>2.了解一个dt的文件结构</h5><p><img src="https://s2.loli.net/2023/05/05/uyPfOhCAlqHNg2E.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这是一个dt必须的组层，注意我图中划掉的部分是不必要的，现在我像各位详解下每个文件的作用<br><strong>(1)prebuilt文件夹</strong></p>
+<p><img src="https://s2.loli.net/2023/05/05/ng4MqzORBPoV7uA.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这个文件夹的作用非常好理解，里面就是存放我们在第一步提取出来的内核<br>像这种提取出来的内核又名为预编译内核<br>预编译内核顾名思义就是已经预备编译好的内核<br>其中<code>image.gz</code>为内核本体<br>下面的<code>dtb.img</code>也是从刚才的第一步里面提取出来的<br>有部分机型可能会提取出来<code>dtbo</code>如果有的话也要放进来</p>
+<p><img src="https://s2.loli.net/2023/05/05/8Xz3nbM4STq2p9B.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这俩文件都是从提取出来的预编译部分重命名出来的</p>
+<p>其中xxx-kernel就是<code>image.gz</code><br>xxx-dtb就是<code>dtb.img</code><br><strong>(2)root文件夹</strong><br>一般情况下都是要直接在这个文件夹里面直接新建个recovery文件夹，而这里面的文件来源都是在刚才RamDisk里面提取的init.xxx.rc，如果要修复解密要➕更多的东西，但是由于这里是小白教程就不多教了<br>提取的位置在RamDisk根目录下，提取所有的rc脚本过来</p>
+<p><img src="https://s2.loli.net/2023/05/05/d2zqkwTUfyiFMmO.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>(3)剩下的mk文件都是各种机型参数和编译选择的填写位置</strong><br>我大概说下每个的作用，具体看下文的教程</p>
+<p><code>Android.mk</code><br>用于声明你机型的机型代号，比如你的手机是小米5那么你的代号就是gemini</p>
+<p><code>AndroidProduct.mk</code><br>用于告知twrp源码你写机型名称的那个mk的名字，这样才能让twrp读取到你的mk去编译</p>
+<p><code>BoardConfig.mk</code><br>一般用于写机型的内核分区等配置文件</p>
+<p><code>device.mk</code><br>如果你不是AB&#x2F;vab分区一般用不到这个，这个是写AB分区配置的</p>
+<p><code>twrp_机型代号.mk/omni_机型代号.mk</code><br>这两个名字根据你twrp源码的安卓版本对应，如果你是安卓11就用twrp开头的，如果是以下的就用omni</p>
+<p><code>recovery.fstab</code><br>这个文件是用来声明个个分区的挂载位置，也是提取自RamDisk</p>
+<h5 id="3-真正开始手写dt"><a href="#3-真正开始手写dt" class="headerlink" title="3.真正开始手写dt"></a>3.真正开始手写dt</h5><p><strong>(1)利用mt管理器搭建一个dt框架</strong><br>首先新建个文件夹<br>将文件夹命名为<code>android_device_品牌英文名_机型代号</code><br>其实命名成啥都行，不过嘛，把这玩意命名成这种格式是一种标准，建议跟进下<br>然后按照我所列出的树状图来新建文件和文件夹</p>
+<p><img src="https://s2.loli.net/2023/05/05/2U4xeMnoDfWkwpC.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>mt管理器点下面那排的➕号能调出来新建面板</p>
+<p><img src="https://s2.loli.net/2023/05/05/1duJmktwhTn2bPI.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>建好了后差不多长这样</p>
+<p><img src="https://s2.loli.net/2023/05/05/RrlUeFhOYQo3xwV.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果你自己对照后发现和我一样那么证明这步你成功啦<br><strong>(2)提取文件到dt里面</strong><br>咱们先从最简单的开始<code>recovery.fstab</code><br>一般这个文件会存在在<code>ramdisk/etc/recovery.fstab</code>，将这个文件放到dt根目录下</p>
+<p><img src="https://s2.loli.net/2023/05/05/DZ2hxvBM6o5GquJ.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果没有这个文件可以去找你手机的<code>vendor/etc或system/etc下的fstab</code>文件（大于2k）并重命名为<code>recovery.fstab</code>拷贝到dt根目录下</p>
+<p><img src="https://s2.loli.net/2023/05/05/d9CZUru3t5vsSq4.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>提取rc脚本到<code>root/recovery</code>，这些脚本直接从RamDisk根目录下找到并复制进去</p>
+<p><img src="https://s2.loli.net/2023/05/05/WJmRkBY4dL6rhxN.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>标蓝部分均为rc脚本，就是xxx.rc这种</p>
+<p>要拷贝的最后一个文件就是预编译内核啦，这个不在RamDisk而在split_img下，</p>
+<p><img src="https://s2.loli.net/2023/05/05/NBCPp1ZAJFTWboX.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>将文件后有dtb的命名为dtb.img，将有kernel命名为image.gz放到dt的prebuilt目录下</p>
+<p><img src="https://s2.loli.net/2023/05/05/fJZ42vtio5uqCL9.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果你的机型解出来的还有后面有-dtbo结尾的，将其命名为dtbo.img也放进来<br><strong>(3)编辑mk文件</strong><br>好了各位，这步要切入正题了，各位要认真观看反复观摩哟<br>先从<code>Android.mk</code>开始，这步是最简单的<br>首先你要知道你的机型代号，然后将我提供例子里面的代码复制下来，将蓝字部分改为你的机型代号，这步的含义很简单就是写下你的机型代号，所以我就不多讲了，上面# 后面的那些话都是注释，也建议各位保留下来，不要复制的时候删掉</p>
+<p><img src="https://s2.loli.net/2023/05/05/jxSOBCw4hFiN1U6.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><code>AndroidProducts.mk</code><br>同样也是将我提供的例子的代码复制下来，将蓝字部分改为你自己所命名的文件名称，这步不知道我在说啥的，往上面翻，看我画的树状图<br>这步的作用是在告诉twrp的源码你的文件名称</p>
+<p><img src="https://s2.loli.net/2023/05/05/ZrSyfRAtzxcduXY.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><code>BoardConfig.mk</code><br>家人吗大的要来了，这步听我慢慢道来<br>从头开始看</p>
+<p><img src="https://s2.loli.net/2023/05/05/HNV8vK4rd9POma2.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>上面那些#开头的注释不用管<br>首先是<br><code>DEVICE_PATH := device/duoqin/k61v1</code><br>将其改成<br><code>DEVICE_PATH := device/品牌英文名称/机型代号</code><br>这里的作用是声明你dt所存放的位置</p>
+<p><img src="https://s2.loli.net/2023/05/05/mBMbZda9SYtlexi.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后我标蓝的这块基本不用动，一个的作用是跳过依赖检查，还有个是声明CPU类型，两个都做了通用化处理，各位直接去我提供的例子里面复制就好</p>
+<p><img src="https://s2.loli.net/2023/05/05/EPg273HSaXxZh9t.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>接着是<br><code>TARGET_OTA_ASSERT_DEVICE := k61v1</code><br>将其改为<br><code>TARGET_OTA_ASSERT_DEVICE := 你的机型代号，注意空格</code><br>这里的作用是验证刷机包的机型验证，有的时候你刷机碰到错误7就是因为这里的机型和你刷机包里面刷机脚本的机型对不上</p>
+<p><img src="https://s2.loli.net/2023/05/05/bWN13dpTj4Pqh2e.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这部分代码应该也不用动，也做了通用化处理，这步是告诉你twrp源码的分区文件格式</p>
+<p><img src="https://s2.loli.net/2023/05/05/aBgukZ2VopDjqv5.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后就是内核部分啦，这部分改动的比较多<br>首先是内核的cmdline部分，你不懂啥意思？没关系跟着我做就好啦<br>首先找到刚才找预编译内核的那个目录，找到这个后面带cmdline的文件</p>
+<p><img src="https://s2.loli.net/2023/05/05/EcfdGamyqOlBMTZ.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后点击他选择编辑文本，将里面的话复制出来</p>
+<p><img src="https://s2.loli.net/2023/05/05/KWdP8D1yLEFJk36.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>然后将<br><code>BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user</code><br>改为<br><code>BOARD_KERNEL_CMDLINE := 你复制的，注意空格</code></p>
+<p><img src="https://s2.loli.net/2023/05/05/LtuOAP9Yk3yRGno.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>下面这两个实在声明你预编译内核的位置，如果你还多个dtbo.img就在<br><code>TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img的下面多➕一行</code><br><code>TARGET_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img</code><br>然后再➕一行<br><code>BOARD_INCLUDE_RECOVERY_DTBO := true</code><br>这里是声明你使用dtbo.img而且告诉twrp dtbo的位置<br>下面的部分不用管，直到这部分</p>
+<p><img src="https://s2.loli.net/2023/05/05/mNHyBEWJRMd3jQe.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>将<br><code>TARGET_KERNEL_SOURCE := kernel/duoqin/k61v1_64_bsp</code><br><code>TARGET_KERNEL_CONFIG := k61v1_64_bsp_defconfig</code><br>改为<br><code>TARGET_KERNEL_SOURCE := kernel/厂家英文名/机型代号</code><br><code>TARGET_KERNEL_CONFIG := 机型代号_defconfig</code><br>这步是在说明内核源码的位置<br>接下来是</p>
+<p><img src="https://s2.loli.net/2023/05/05/42x1R8qIpQHshrG.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := mt6761</code><br>将这里改为<br><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := 你的soc型号</code>，比如高通855就写sm8150，865就是sm8250<br>下面这部分不用动</p>
+<p><img src="https://s2.loli.net/2023/05/05/GTKOkqDwVIgmPlz.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>这部分都是写了一些自适应分辨率和，默认启动logcat之类的参数，也是可以直接复制的<br>接下来这步就在不同的手机上有不同的区别了，首先确定你的手机是否为动态分区<br>如果是动态分区搞清楚整个super分区大小，并搞清楚整个super里面都包含哪些分区</p>
+<p><img src="https://s2.loli.net/2023/05/05/1OAJqUISBikR4sw.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>搞清楚后将<br><code># Dynamic Partition</code><br><code>BOARD_SUPER_PARTITION_SIZE := 4294967296</code><br><code>BOARD_SUPER_PARTITION_GROUPS := main</code><br><code>BOARD_MAIN_SIZE := 4294967296</code><br><code>BOARD_MAIN_PARTITION_LIST := product vendor system</code><br>改为<br><code># Dynamic Partition</code><br><code>BOARD_SUPER_PARTITION_SIZE := super分区大小（字节为单位）</code><br><code>BOARD_SUPER_PARTITION_GROUPS := main</code><br><code>BOARD_MAIN_SIZE := super分区大小（字节为单位）</code><br><code>BOARD_MAIN_PARTITION_LIST := 包含在super里面的分区名称，用空格间隔</code><br>如果你不是动态分区直接把这些删掉就好<br>下面这部分基本可以照抄了</p>
+<p><img src="https://s2.loli.net/2023/05/05/Zk2DhFXPQeRGuWU.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>如果你的设备没有avb验证那么可以把<br><code># AVB</code><br><code>BOARD_AVB_ENABLE := true</code><br><code>BOARD_AVB_VBMETA_SYSTEM := system product</code><br><code>BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1</code><br><code>BOARD_AVB_VBMETA_VENDOR := vendor</code><br><code>BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2</code><br><code>BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3</code><br>删掉<br>下一步确定你的手机是否有独立rec分区，这步我让你们在准备工作中做了，如果有rec分区</p>
+<p><img src="https://s2.loli.net/2023/05/05/doBVCDp3XTjxIS1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>我选中这部分删掉，如果是ab，vab啥的就留着，这部分是在告诉twrp他是不是要把twrp编译进boot分区<br>下一部分是<br><code># Bootloader</code><br><code>TARGET_BOOTLOADER_BOARD_NAME := k61v1</code><br><code>TARGET_NO_BOOTLOADER := true</code><br><code>TARGET_USES_UEFI := true</code><br>代码啦<br>改为<br><code># Bootloader</code><br><code>TARGET_BOOTLOADER_BOARD_NAME := 机型代号</code><br><code>TARGET_NO_BOOTLOADER := 有fastboot就写true没有就写false</code><br><code>TARGET_USES_UEFI := true（这行只有vab分区需要留下，如果不是就删掉）</code></p>
+<p><img src="https://s2.loli.net/2023/05/05/PpaDqM6bJgCkl9x.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>马上就到这个文件的最后一部啦<br>将<br><code># Partitions</code><br><code>BOARD_FLASH_BLOCK_SIZE := 131072</code><br><code>BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432</code><br>改成</p>
+<p><code># Partitions</code><br><code>BOARD_FLASH_BLOCK_SIZE := 131072</code><br><code>BOARD_BOOTIMAGE_PARTITION_SIZE := 你boot分区的大小，上面的数字是32mb，还是已字节为单位，如果你是我上面说的第一种分区就直接扬了这行</code></p>
+<p><code>device.mk</code><br>如果你既不是动态分区，也不是第二种分区，那么这步你就跳过，直接看下一步<br>如果你是vab分区那么直接把我这段复制过去</p>
+<p><img src="https://s2.loli.net/2023/05/05/YGiEQ9Tf6pj8reP.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>只需要改动</p>
+<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
+<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>如果你只是动态分区，那么需要你保留我标蓝的部分</p>
+<p><img src="https://s2.loli.net/2023/05/05/TkKgfu7CqL94eJE.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>其他全部扬掉<br>只需要改动</p>
+<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
+<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>如果你不是动态分区只是ab分区<br>删掉我标蓝部分</p>
+<p><img src="https://s2.loli.net/2023/05/05/fIHzZmu5DYbdrnJ.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>只需要改动</p>
+<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
+<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>并将<br><code>AB_OTA_PARTITIONS += \</code><br><code>boot \</code><br><code>system \</code><br><code>product \</code><br><code>dtbo \</code><br><code>vbmeta \</code><br><code>vbmeta_system \</code><br><code>vendor</code><br>改成你机器所存在的AB分区<br>最后一个是twrp_你机型代号.mk<br>这步很简单</p>
+<p><img src="https://s2.loli.net/2023/05/05/U2dSEZhPK9sOtAR.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>改为</p>
+<p><img src="https://s2.loli.net/2023/05/05/jZMNQ7xAFIlCo2J.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="三，编译"><a href="#三，编译" class="headerlink" title="三，编译"></a>三，编译</h3><p>这一步教程非常多，各位百度就好了</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/twrp/">#twrp</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>0基础编写TWRP的Device Tree</div>
+      <div>https://xpsoted.github.io/post/hello-world.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>SKDushow</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
