@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>安卓编译环境配置</title>
+    <link href="/post/%E5%AE%89%E5%8D%93%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html"/>
+    <url>/post/%E5%AE%89%E5%8D%93%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html</url>
+    
+    <content type="html"><![CDATA[<p>1.安装依赖</p><figure class="highlight shell"><figcaption><span>Session</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Shell">sudo apt-get install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev python openjdk-8-jdk python python3<br></code></pre></td></tr></table></figure><p>2.安装repo</p><figure class="highlight shell"><figcaption><span>Session</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs Shell">mkdir -p ~/bin<br>curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo<br>sudo cp ~/bin/repo /bin/repo<br>sudo chmod a+x /bin/repo<br></code></pre></td></tr></table></figure><p>3.设置Git</p><figure class="highlight shell"><figcaption><span>Session</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Shell">git config --global user.email &quot;xxx@xxx.com&quot;<br>git config --global user.name &quot;xxx&quot;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>android</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>0基础编写TWRP的Device Tree</title>
     <link href="/post/hello-world.html"/>
     <url>/post/hello-world.html</url>
