@@ -1,0 +1,11 @@
+:root {
+	--color5: #00dbff;
+	--color-shadow: rgb(204 177 161 / 60%);
+}
+body {
+	overflow-x: hidden;
+}
+
+#nexmoe-content .nexmoe-post-footer {
+	background-color: transparent;
+}

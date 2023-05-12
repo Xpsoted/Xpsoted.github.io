@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>归档 | SKDushow&#39;s Blog</title>
+  <title>通过termux在手机上部署hexo到GitHub Pages | SKDushow&#39;s Blog</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -495,140 +495,798 @@
   
 </header>
         <!-- 内容区域 -->
-        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
-<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
-<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
-  <div class="archive-header-title">
-    archive
-  </div>
-  <div class="archive-header-desc">
-  
-  <span class="title" id="archive-header-desc"></span>
-  <script>
-  function typedFn() {
-    const el = '#archive-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
-  
-  </div>
-  <div class="mask-box"></div>
-</div>
+        
+ <!-- prismjs 代码高亮 -->
+ 
+    
+    <link href="/js/prism/prism-line-numbers.css" rel="stylesheet">
+    
+        <link href="/js/prism/prism.min.css" rel="stylesheet">
+    
 
-<div class="archive-video">
-  <video class="full-video" autoplay loop muted>
-      <source style="width: 100%;height: 100vh;" src="/">
-  </video>
-  <div class="video-header-title">
-    archive
-  </div>
-  <div class="video-header-desc">
+    <style>
+        pre[class*="language-"] {
+            overflow-y: hidden;
+        }
+        .line-numbers .line-numbers-rows {
+            border: none;
+        }
+    </style>
   
-      <span class="title" id="archive-video-header-desc"></span>
-      <script>
-  function typedFn() {
-    const el = '#archive-video-header-desc';
-    const type = 'archive';
-    let desc = '愿你如风，被人温柔以待'
-    var typed = new Typed(el, {
-      strings: [desc],
-      startDelay: 100,
-      typeSpeed: 100,
-      loop: true,
-      backSpeed: 50,
-      showCursor: true
-    });
-  }
-  typedFn();
-</script>
+
+
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
+
+
+  <!-- 文章详情页顶部图片和标题 -->
+
+
+
+
+<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
+  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp')">
+  <div class="post-detail-header-mask"></div>
+  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+  
+  <div class="post-detail-header_info-box">
+    <div class="title-box">
+      <span class="title">
+        通过termux在手机上部署hexo到GitHub Pages
+      </span>
+    </div>
+    
+    
       
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-05-07 |
+        </span>
+      
+
+      
+
+      
+    
   </div>
-  <div class="mask-box"></div>
+  
+  
+    <script src="/js/bubble/bubble.js"></script>
+  
 </div>
 
-<!-- hash算法 -->
 
 
-<div class="archive-main">
-  <section class="archive">
-    <div class="archive-content">
-      <ul class="post-archive">
+
+
+<div class="post-detail-content post-row" 
+  style="padding-top: 0px;">
+  <div class="main-content">
+    <article class="post post-detail">
+      <div class="post-content">
+        <h1 id="通过termux在手机上部署hexo到GitHub-Pages"><a href="#通过termux在手机上部署hexo到GitHub-Pages" class="headerlink" title="通过termux在手机上部署hexo到GitHub Pages"></a>通过termux在手机上部署hexo到GitHub Pages</h1><h2 id="0x010准备工作"><a href="#0x010准备工作" class="headerlink" title="0x010准备工作"></a>0x010准备工作</h2><h3 id="0x011安装软件"><a href="#0x011安装软件" class="headerlink" title="0x011安装软件"></a>0x011安装软件</h3><p><strong>1.<a target="_blank" rel="noopener" href="https://f-droid.org/packages/com.termux/">Termux高级终端</a></strong></p>
+<p>用于部署安装hexo等操作<br><img src="https://s2.loli.net/2023/05/06/G7YPWgNmDAFvrle.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/G7YPWgNmDAFvrle.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>2.<a target="_blank" rel="noopener" href="https://www.coolapk.com/apk/bin.mt.plus">MT管理器</a></strong></p>
+<p>用于管理hexo相关文件，配置主题等操作<br><img src="https://s2.loli.net/2023/05/06/8BjzovRkGwyIf2J.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/8BjzovRkGwyIf2J.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>3.<a target="_blank" rel="noopener" href="https://f-droid.org/repo/net.gsantner.markor_145.apk">Markor</a></strong></p>
+<p>作为markdown语法编辑器<br><img src="https://s2.loli.net/2023/05/06/wg9WltU3ifVuSCD.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/wg9WltU3ifVuSCD.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="0x012软件配置"><a href="#0x012软件配置" class="headerlink" title="0x012软件配置"></a>0x012软件配置</h3><p><strong>1.将termux软件包更新源换为国内源</strong></p>
+<p>直接在高级终端当中输入如下指令</p>
+<pre class="line-numbers language-none"><code class="language-none">sed -i &#39;s@^\(deb.*stable main\)$@#\1\ndeb https:&#x2F;&#x2F;mirrors.bfsu.edu.cn&#x2F;termux&#x2F;apt&#x2F;termux-main stable main@&#39; $PREFIX&#x2F;etc&#x2F;apt&#x2F;sources.list &amp;&amp; apt update &amp;&amp; apt upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果出现询问是否更新需要输入y并回车<br><img src="https://s2.loli.net/2023/05/06/mpx3rvP6OIiKceF.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/mpx3rvP6OIiKceF.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>2.安装Hexo所需的依赖</strong></p>
+<p>Hexo需要安装git，openssl，nodejs，直接在Termux输入如下指令即可安装</p>
+<pre class="line-numbers language-none"><code class="language-none">apt install nodejs openssh git -y<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/06/zDbFs8jygrpfWTQ.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/zDbFs8jygrpfWTQ.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>3.将node.js软件源换为国内源</strong></p>
+<p>输入如下指令</p>
+<pre class="line-numbers language-none"><code class="language-none">npm config set registry https:&#x2F;&#x2F;registry.npmmirror.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/06/RCEnLsOoXmJl3TM.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/RCEnLsOoXmJl3TM.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="0x013注册GitHub账号"><a href="#0x013注册GitHub账号" class="headerlink" title="0x013注册GitHub账号"></a>0x013注册GitHub账号</h3><p>有的话可以忽略</p>
+<h3 id="0x014设置GitHub的Ssh-key"><a href="#0x014设置GitHub的Ssh-key" class="headerlink" title="0x014设置GitHub的Ssh key"></a>0x014设置GitHub的Ssh key</h3><p><strong>1.生成ssh密钥</strong></p>
+<p>在termux输入如下指令，将邮箱替换成你注册GitHub的邮箱</p>
+<p><code>ssh-keygen \-t rsa \-C &quot;邮箱&quot;</code><br><img src="https://s2.loli.net/2023/05/06/jQxuH2BWqVrmsbR.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/jQxuH2BWqVrmsbR.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>在这里输入你ssh key要保存的路径，可以直接回车用默认的地址<br><img src="https://s2.loli.net/2023/05/06/rpJf9eFx6Ul3MgK.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/rpJf9eFx6Ul3MgK.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>在这里输入一个ssh key的密码，随便你自己设置就行，输入过程中没有显示，输入完成后直接回车<br><img src="https://s2.loli.net/2023/05/06/64WXnyBOrAihPUk.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/64WXnyBOrAihPUk.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>再输入一遍<br><img src="https://s2.loli.net/2023/05/06/G9wnXM7xjJktQWm.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/G9wnXM7xjJktQWm.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>创建完成后会出现如下的代码<br><img src="https://s2.loli.net/2023/05/06/kogqyuBtx48lvhn.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/kogqyuBtx48lvhn.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>2.获取创建的密钥</strong></p>
+<p>如果你刚才和我一样用的是默认的路径，那么输入如下指令来查看密钥</p>
+<pre class="line-numbers language-none"><code class="language-none">cat &#x2F;data&#x2F;data&#x2F;com.termux&#x2F;files&#x2F;home&#x2F;.ssh&#x2F;id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/06/48DibgSEnAHYRpo.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/48DibgSEnAHYRpo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>将密钥复制下来</p>
+<p><strong>3.将密钥添加到GitHub上去</strong></p>
+<p>打开GitHub，找到设置页，然后点击如下按钮来添加ssh key<br><img src="https://s2.loli.net/2023/05/06/9HmBpXyzneYJcUG.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/9HmBpXyzneYJcUG.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>点击new sshkey<br><img src="https://s2.loli.net/2023/05/06/pfhYPAyE8c5qW4t.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/pfhYPAyE8c5qW4t.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>名字随便填一个，然后把刚才复制的ssh key粘贴下来，并点击绿色按钮<br><img src="https://s2.loli.net/2023/05/06/tlRjqcigPZX5IED.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/tlRjqcigPZX5IED.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>sshkey显示出来就表示添加成功<br><img src="https://s2.loli.net/2023/05/06/WkvZNXa2Ud6sewm.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/WkvZNXa2Ud6sewm.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>4.验证ssh</strong></p>
+<p>打开termux输入如下指令<br><code>ssh \-T git@github.com</code><br>当出现<br><code>Are you sure you want to continue connecting (yes/no/[fingerprint])?</code><br>输入yes<br><img src="https://s2.loli.net/2023/05/06/mIfgXpVcGObNs2J.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/mIfgXpVcGObNs2J.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp">输出<br><code>Hi xxx! You&#39;ve successfully authenticated...</code><br><img src="https://s2.loli.net/2023/05/06/1tVoSKLbyk2YWgl.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/1tVoSKLbyk2YWgl.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>时即连接成功。</p>
+<h3 id="0x015-配置git相关"><a href="#0x015-配置git相关" class="headerlink" title="0x015 配置git相关"></a>0x015 配置git相关</h3><p><strong>1.创建GitHub pages仓库</strong></p>
+<p>打开GitHub 主页，点击右上角头像旁边加号，找到New repository（创建储存库）点击它</p>
+<p>下面的操作具体看图片<br><img src="https://s2.loli.net/2023/05/06/kvDamAYSGh9O6yU.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/kvDamAYSGh9O6yU.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>2.配置本机git信息</strong></p>
+<p>打开termux输入如下指令<br><img src="https://s2.loli.net/2023/05/06/O7UAsdB4tNwY1LQ.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/O7UAsdB4tNwY1LQ.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<pre class="line-numbers language-none"><code class="language-none">git config --global user.name &quot;您的GitHub 用户名&quot;
+git config --global user.email &quot;您的GitHub 邮箱&quot;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="0x020-安装并在本地创建Hexo博客"><a href="#0x020-安装并在本地创建Hexo博客" class="headerlink" title="0x020 安装并在本地创建Hexo博客"></a>0x020 安装并在本地创建Hexo博客</h2><h3 id="0x021-安装Hexo本体"><a href="#0x021-安装Hexo本体" class="headerlink" title="0x021 安装Hexo本体"></a>0x021 安装Hexo本体</h3><p>输入如下指令即可</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://s2.loli.net/2023/05/06/XcnoDqLyV6HtzTi.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/XcnoDqLyV6HtzTi.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="0x022-创建你的Hexo博客"><a href="#0x022-创建你的Hexo博客" class="headerlink" title="0x022 创建你的Hexo博客"></a>0x022 创建你的Hexo博客</h3><p><strong>1.初始化hexo</strong></p>
+<p>以下是命令解释：</p>
+<ul>
+<li><code>mkdir 文件夹名字</code><br>创建文件夹命令 小白可以百度一下Linux常用命令进行更多的学习</li>
+<li><code>cd 文件夹名字</code><br>进入该文件夹</li>
+<li><code>hexo init</code><br>初始化hexo博客</li>
+<li><code>hexo g</code><br>生成静态文件</li>
+</ul>
+<p>稍微解释下作用，就是在你手机根目录下创建了一个文件夹，这里面就是你的博客，并且进行了初始化操作</p>
+<p>下面是一键命令,直接复制粘贴即可</p>
+<p><code>cd &amp;&amp; mkdir hexo &amp;&amp; cd hexo &amp;&amp; hexo init &amp;&amp; hexo g</code><br><img src="https://s2.loli.net/2023/05/06/32DwQvLArV18R9b.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/32DwQvLArV18R9b.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>2.创建本地服务器确定博客已经成功建立</strong></p>
+<p>termux输入<code>hexo s</code>来在手机上开启本地服务器确实博客已经正式可以使用</p>
+<p>复制下面的网址到浏览器进行访问<br><img src="https://s2.loli.net/2023/05/06/fgalKZLimYeVhAb.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/fgalKZLimYeVhAb.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><img src="https://s2.loli.net/2023/05/06/TBVv3IHbRmgMNeL.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/TBVv3IHbRmgMNeL.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>现在hexo已经基本安装完成</p>
+<p><strong>3.配置hexo-编写文章</strong></p>
+<p><strong>创建编辑文章</strong><br>现在状态的hexo只有一个初始化时HelloWorld的文章，那么我们要想自己创建文章怎么办呢？</p>
+<p>首先在termux按下ctrl+c来关闭我们开启的服务器<img src="https://s2.loli.net/2023/05/06/2EJlCHtZvBrIP9m.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/2EJlCHtZvBrIP9m.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>然后在终端下输入;其中文章标题是你可以自己其名字的<br><code>hexo new 文章标题</code></p>
+<p>比如我创建了一个1234为标题的文章<br><img src="https://s2.loli.net/2023/05/06/zUg9viPM38S2oXr.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/zUg9viPM38S2oXr.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>编写文章</strong></p>
+<ul>
+<li>找到文章本体文件</li>
+</ul>
+<p>因为安卓12以后app没法直接访问data分区，所以我们不能直接编辑文章，需要将文章拷贝出来进行编辑，<br>hexo创建出来的的文章一般在termux目录的<code>~/hexo/source/_posts/</code>下<br>那么我们可以直接用指令</p>
+<p><code>cp \-r ~/hexo/source/_posts/文章名称.md /sdcard/</code></p>
+<p>其中文章名称就是你的文章标题</p>
+<p>比如我的文章标题是1234那么我就要用如下指令</p>
+<p><code>cp \-r ~/hexo/source/_posts/1234.md /sdcard/</code><br><img src="https://s2.loli.net/2023/05/06/7YOsrk2gMptDhZ4.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/7YOsrk2gMptDhZ4.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>各位现在打开mt管理器就可以发现这个文件了<br><img src="https://s2.loli.net/2023/05/06/7UQm8542ApjMKvO.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/7UQm8542ApjMKvO.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<ul>
+<li>编写文章</li>
+</ul>
+<p>hexo引擎是支持markdown语法和html5的，各位可以百度下如何正确使用这两种强大的语言</p>
+<p>如果你本来就会这两种语言的话可以直接编辑这个文件，如果不会的话各位可以百度下markdown语法，基础的非常简单，实在懒得学可以用各种mark down编辑器，就跟word一样</p>
+<p>这里具体碍于篇幅原因就不具体写<br><img src="https://s2.loli.net/2023/05/06/5TinRzGIZJk3N6A.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/5TinRzGIZJk3N6A.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><img src="https://s2.loli.net/2023/05/06/gSuUywaZh3ENv4o.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/gSuUywaZh3ENv4o.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<ul>
+<li>把文章拷贝回hexo目录下</li>
+</ul>
+<p>其实和拷贝过来的流程一样，就是把具体路径掉各<br>先要删除在hexo目录下的空文件</p>
+<p><code>rm \-rf ~/hexo/source/_posts/文章名称.md</code></p>
+<p>然后把写好的文章拷贝回hdxo目录</p>
+<p><code>cp \-r /sdcard/文章名称.md ~/hexo/source/_posts/</code><br>其中文章名称就是你的文章标题<br><img src="https://s2.loli.net/2023/05/06/BzdV8YcrbqOHWy5.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/BzdV8YcrbqOHWy5.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<ul>
+<li>将文章导入到hexo</li>
+</ul>
+<p>我们现在已经编写完成，那么导入到hexo里面还要分几部</p>
+<p><strong>第一步，清理hexo缓存</strong></p>
+<p><code>hexo clean</code><br><img src="https://s2.loli.net/2023/05/06/YrKqMQHdVulzwB2.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/YrKqMQHdVulzwB2.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>第二步，生成网页</strong></p>
+<p><code>hexo g</code><br><img src="https://s2.loli.net/2023/05/06/2UEt9vH8bgqBOfu.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/2UEt9vH8bgqBOfu.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br><strong>第三步，启动本地服务器来查看效果</strong></p>
+<p><code>hexo s</code><br><img src="https://s2.loli.net/2023/05/06/LBMlZYi9yKnp7cs.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/LBMlZYi9yKnp7cs.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>最后打开本地服务器的网址看看效果是否和自己想的一样<br><img src="https://s2.loli.net/2023/05/06/na5R1LPxWdIcF7p.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/na5R1LPxWdIcF7p.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><em><strong>以上就是编写文章全部流程，各位可以多熟悉一下</strong></em></p>
+<p><strong>4.配置hexo-配置信息修改</strong></p>
+<p>现在状态下的hexo虽然已经是基本可用状态了，但是其实还有很多配置需要修改才能达到最佳状态</p>
+<p><strong>当然修改信息的前提我们需要将配置文件拷贝出来</strong></p>
+<p><code>mv ~/hexo/_config.yml /sdcard/</code></p>
+<p>然后用mt管理器来编辑这个文件<br><img src="https://s2.loli.net/2023/05/06/pDcnr2W7RT6PwYE.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/pDcnr2W7RT6PwYE.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>第一，个人&#x2F;站点信息修改</strong></p>
+<p>主要要修改的是下图这一部分，下面我会把我每部分的作用描述下，并且把我改好的放上来供各位参考<br><img src="https://s2.loli.net/2023/05/06/NSxTnyu5fzZDdRA.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/NSxTnyu5fzZDdRA.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>每部分作用注释</p>
+<pre class="line-numbers language-none"><code class="language-none">Site
+title: Hexo 网站标题
+subtitle: &#39;&#39;
+description: &#39;&#39; 个人信息描述
+keywords: 搜索引擎关键词
+author: John Doe 个人名称
+language: en 语言
+timezone: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>我修改的</p>
+<pre class="line-numbers language-none"><code class="language-none">Site
+title: SKDushow&#39;s Blog
+subtitle: &#39;&#39;
+description: &#39;&#39;
+keywords:
+author: SKDushow
+language: zh-CN
+timezone: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>第二，GitHub上传相关信息</strong></p>
+<p>先安装GitHubdeploy插件，打开termux输入如下指令</p>
+<p><code>npm install hexo-deployer-git</code></p>
+<p>然后打开mt管理器在配置文件的结尾<br><img src="https://s2.loli.net/2023/05/06/Em9Ry1WqPU7bC8k.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/Em9Ry1WqPU7bC8k.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>把下面这部分</p>
+<pre class="line-numbers language-none"><code class="language-none"># Deployment
+## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;one-command-deployment
+deploy:
+  type: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>改成</p>
+<pre class="line-numbers language-none"><code class="language-none">deploy：
+  type:  git
+  repo:  https:&#x2F;&#x2F;github.com&#x2F;你的用户名&#x2F;你的用户名.github.io.git
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>自此配置文件必要的修改已经完成，当然还有很多别的地方可以修改，这个就留给各位自己研究了</strong></p>
+<p><strong>第三，将配置文件拷贝回hexo目录</strong></p>
+<p><code>mv /sdcard/_config.yml ~/hexo/</code></p>
+<p><img src="https://s2.loli.net/2023/05/06/sjCJh7TlgdL5N6F.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/sjCJh7TlgdL5N6F.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="0x023Hexo美化相关"><a href="#0x023Hexo美化相关" class="headerlink" title="0x023Hexo美化相关"></a><a href="#0x023Hexo%E7%BE%8E%E5%8C%96%E7%9B%B8%E5%85%B3" title="0x023Hexo美化相关"></a>0x023Hexo美化相关</h3><p>现在虽然博客已经搭建完成，但是可能和大家看到很多别人的博客样貌上差别很大，这其中的原因是你没有安装主题</p>
+<p>其实主题的教程不大好写，因为每个主题的安装方式可能都会有一定的差异，不过大体流程错不了，但是具体的细节各位要去看你安装的主题的相关文档</p>
+<p>这里我用fluid主题作为例子，当然你也可以选择别的主题，hexo主题还是非常丰富的</p>
+<p><strong>1.下载主题</strong></p>
+<p>多数hexo主题是支持npm直接安装的，这里我直接拿这个举例子</p>
+<p><strong>首先确定你现在所在的目录是hexo目录</strong></p>
+<p>各位可以退出termux然后重新进入，输入<br><img src="https://s2.loli.net/2023/05/06/B5YlkLj2M9JeXNV.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/B5YlkLj2M9JeXNV.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<pre class="line-numbers language-none"><code class="language-none">cd hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>确保你在hexo目录下</p>
+<p><strong>根据fluid官方文档通过npm下载fluid主题</strong></p>
+<p>这是fluid主题官方文档给的安装方式</p>
+<p><img src="https://s2.loli.net/2023/05/06/Gmb24D9KzO5SPUM.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/Gmb24D9KzO5SPUM.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>那我们可以直接输入指令</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install --save hexo-theme-fluid<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/06/GhUVPYRrHxENiF6.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/GhUVPYRrHxENiF6.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>2.安装主题</strong></p>
+<p><strong>把主题配置文件拷贝到hexo根目录</strong></p>
+<p>在termux下输入指令</p>
+<pre class="line-numbers language-none"><code class="language-none">cp ~&#x2F;hexo&#x2F;node_modules&#x2F;hexo-theme-主题名称&#x2F;_config.yml  ~&#x2F;hexo&#x2F;_config.主题名称.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>因为我的主题叫做fluid，所以我输入的指令是</p>
+<pre class="line-numbers language-none"><code class="language-none">cp ~&#x2F;hexo&#x2F;node_modules&#x2F;hexo-theme-fluid&#x2F;_config.yml  ~&#x2F;hexo&#x2F;_config.fluid.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/06/Yc9JUiNfp18huog.jpg" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/Yc9JUiNfp18huog.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>关于主题配置文件的修改我这里就不多说了，因为每个主题的选项都不一样，这个需要根据你主题的文档来修改，一般这些文档都会都会非常详细</p>
+<p>至于修改方式和上面的hexo配置文件修改方式大同小异，大家照葫芦画瓢即可</p>
+<p><strong>3.设置fluid主题作为hexo主题</strong></p>
+<p>在hexo目录下termux输入</p>
+<pre class="line-numbers language-none"><code class="language-none">nano _config.yml<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后大家按住termux的向下箭头到最底下找到</p>
+<p><code>theme: landscape</code><br>这里<br><img src="https://s2.loli.net/2023/05/06/kOI8JrtaSBVEuYm.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/kOI8JrtaSBVEuYm.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>用上下左右键将光标移动到landspace后面，删除landspace改为fliud</p>
+<p><img src="https://s2.loli.net/2023/05/06/ZAtu6P34rDVSdvh.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/ZAtu6P34rDVSdvh.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>注：这里的fliud单词也是根据你所使用的主题而定，因为我用的是fliud主题所以就改为fliud</strong></p>
+<p>按下ctrl 再按在s键保存配置修改，显示这样即为成功</p>
+<p><img src="https://s2.loli.net/2023/05/06/y8o4g7ZcmfpRh2l.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/y8o4g7ZcmfpRh2l.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>按下ctrl 再按下x 推出配置文件编辑</p>
+<p><img src="https://s2.loli.net/2023/05/06/1Q8jlC7cpYvSUGw.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/1Q8jlC7cpYvSUGw.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p><strong>3.启动本地服务器验证主题是否更换成功</strong></p>
+<p>大家直接向上翻到<br><strong>0x022 创建你的Hexo博客</strong><br>那里的教程，步骤完全一样</p>
+<p>不出意外的话大家应该可以看到主题已经更换成功<br><img src="https://s2.loli.net/2023/05/06/37uMTyU5DdBWKrp.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/06/37uMTyU5DdBWKrp.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h2 id="0x030-将hexo博客部署到GitHub-Pages"><a href="#0x030-将hexo博客部署到GitHub-Pages" class="headerlink" title="0x030 将hexo博客部署到GitHub Pages"></a>0x030 将hexo博客部署到GitHub Pages</h2><h3 id="0x031-安装git插件"><a href="#0x031-安装git插件" class="headerlink" title="0x031 安装git插件"></a>0x031 安装git插件</h3><p>Termux直接输入指令来安装git插件</p>
+<pre class="line-numbers language-none"><code class="language-none">npm install hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/07/wf7nJkYLqUr328p.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/07/wf7nJkYLqUr328p.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<h3 id="0x032-将网站上传到GitHub"><a href="#0x032-将网站上传到GitHub" class="headerlink" title="0x032 将网站上传到GitHub"></a>0x032 将网站上传到GitHub</h3><p>termux直接输入来部署</p>
+<pre class="line-numbers language-none"><code class="language-none">hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p><img src="https://s2.loli.net/2023/05/07/jg8epCqHMfEGlkt.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/07/jg8epCqHMfEGlkt.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"><br>在这里输入之前设定的ssh密码直接回车</p>
+<p>出现如下结果就算部署成功了<br><img src="https://s2.loli.net/2023/05/07/3tdZpirAb5hPale.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/07/3tdZpirAb5hPale.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>最后各位可以打开</p>
+<p>GitHub用户名.github.io</p>
+<p>来查看自己是否部署成功</p>
+<p>我的是<br>xpsoted.github.io<br><img src="https://s2.loli.net/2023/05/07/VZ63TNQjep8r7Lf.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/07/VZ63TNQjep8r7Lf.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+<p>至此大家就拥有自己的博客了</p>
+
+      </div>
+      <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/termux-hexo/" class="">
+              termux,hexo
+            </a>
+          
+        </div>
+        
+      </div>
+      
+        <div class="copyright">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+    <strong>作者:  </strong>SKDushow</a>
+    </li>
+    <li class="post-copyright-link">
+    <strong>文章链接:  </strong>
+    <a href="//post/教程/通过termux在手机上部署hexo到GitHub Pages.html" target="_blank" title="通过termux在手机上部署hexo到GitHub Pages">https://xpsoted.github.io//post/教程/通过termux在手机上部署hexo到GitHub Pages.html</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明:   </strong>
+      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+      许可协议。转载请注明出处!
+    </li>
+  </ul>
+<div>
+      
+    </article>
+    <!-- 上一篇文章和下一篇文章 -->
+    
+      <!-- 文章详情页的上一页和下一页 -->
+<div class="post-nav">
+
+
+
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/post/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/%E5%AE%89%E5%8D%93%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">安卓编译环境配置</div>
+      </div>
+      <!-- <div class="content">
+        1.安装依赖
+Sessionsudo apt-get install bc bison build-essential 
+      </div> -->
+    </a>
+  </div>
+
+</div>
+
+    
+    
+
+    <!-- 打赏 -->
+    
+      <div id="appDonate" class="post-donate">
+  <div id="donate_board" class="donate_bar center" ref="donate">
+    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
+  </div>
+  <transition name="fade">
+    <div 
+      class="donate-box-mask"
+      v-cloak 
+      v-show="visible"
+      @click="cancelDialogDrawer()"
+    >
+    </div>
+  </transition>
+  <transition name="bounce">
+    <div class="donate-box" v-cloak v-show="visible">
+      <div class="donate-box_close">
+        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
+      </div>
+      <div class="donate-box_title">
+        <h4>
+          你的赏识是我前进的动力
+        </h4>
+      </div>
+      <div class="donate-box_tab">
+        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
+          支付宝
+        </div>
+        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
+          微信
+        </div>
+      </div>
+      <div class="donate-box_img">
+        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
+          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
+        </div> 
+        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
+          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
+        </div>
+      </div>
+    </div>
+  </transition>
+</div>
+
+<script>
+  var body = document.body || document.documentElement || window;
+  var vm = new Vue({
+    el: '#appDonate',
+    data: {
+      visible: false,
+      tabActive: 'Alipay',
+      top: 0,
+    },
+    computed: {
+    },
+    mounted() {
+    },
+    methods: {
+      showDialogDrawer() {
+        this.visible = true;
+        // 防止页面滚动，只能让弹框滚动
+        // function getScroll() {
+        //   return {
+        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+        //   };
+        // }
+        this.top = $(document).scrollTop() // or getScroll().top
+        // console.log('aa', $('.main-content'));
+        body.style.cssText = 'overflow: hidden;';
+      },
+      cancelDialogDrawer() {
+        this.visible = false;
+        body.removeAttribute('style');
+        $(document).scrollTop(this.top)
+      },
+      changeTabActive(name) {
+        this.tabActive = name;
+      }
+    },
+    created() {}
+  })
+</script>
+    
+
+    <!-- 分享 -->
+    
+      <!-- https://github.com/overtrue/share.js -->
+<!-- 文章详情页的分享 -->
+<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+
+<script src="/js/shareJs/social-share.min.js"></script>
+</script>
+
+<style>
+  .social-share {
+    margin: 20px 0;
+  }
+</style>
+
+
+    
+    
+    <!-- 评论 -->
+    <!-- 评论 -->
+
+  <div id="myComment">
+    
+      <div id="gitment-container"></div>
+
+    
+  </div>
+
+<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
+
+
+  </div>
+
+  <!-- 目录 -->
+  <aside id='l_side'>
+  
+    
+      <section class="widget side_blogger">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box rectangle' href='/about/'>
+          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
+        </a>
+      
+    
+    
+      <div class='text'>
+        
+          <h2>SKDushow</h2>
         
         
+          <p>我是副标题</p>
+
+        
+        
+          <p><span id="jinrishici-sentence">SKDushow's Blog</span></p>
+          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+        
+      </div>
+    
+    
+      <div class="social-wrapper">
+        
           
-            
-            <div class="year" data-aos="zoom-in-up">
-                <div class="bullet"></div>
-                <a href="/archives/2023">2023</a>
-            </div>
+            <a href="/atom.xml"
+              class="social fas fa-rss flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
           
-          <li class="post-item" data-aos="fade-left">
+        
+          
+            <a href="mailto:me@xxx.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="https://github.com/xpsoted"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+          
+            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=你的qq号码"
+              class="social fab fa-qq flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+              
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+    
+  
+  
+  
+
+  <div class="layout_sticky">    
+    
+      
+<section class="widget side_toc">
+  
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87termux%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%88%B0GitHub-Pages"><span class="toc-text">通过termux在手机上部署hexo到GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x010%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">0x010准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x011%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6"><span class="toc-text">0x011安装软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x012%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="toc-text">0x012软件配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x013%E6%B3%A8%E5%86%8CGitHub%E8%B4%A6%E5%8F%B7"><span class="toc-text">0x013注册GitHub账号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x014%E8%AE%BE%E7%BD%AEGitHub%E7%9A%84Ssh-key"><span class="toc-text">0x014设置GitHub的Ssh key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x015-%E9%85%8D%E7%BD%AEgit%E7%9B%B8%E5%85%B3"><span class="toc-text">0x015 配置git相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x020-%E5%AE%89%E8%A3%85%E5%B9%B6%E5%9C%A8%E6%9C%AC%E5%9C%B0%E5%88%9B%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2"><span class="toc-text">0x020 安装并在本地创建Hexo博客</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x021-%E5%AE%89%E8%A3%85Hexo%E6%9C%AC%E4%BD%93"><span class="toc-text">0x021 安装Hexo本体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x022-%E5%88%9B%E5%BB%BA%E4%BD%A0%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2"><span class="toc-text">0x022 创建你的Hexo博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x023Hexo%E7%BE%8E%E5%8C%96%E7%9B%B8%E5%85%B3"><span class="toc-text">0x023Hexo美化相关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x030-%E5%B0%86hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages"><span class="toc-text">0x030 将hexo博客部署到GitHub Pages</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x031-%E5%AE%89%E8%A3%85git%E6%8F%92%E4%BB%B6"><span class="toc-text">0x031 安装git插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x032-%E5%B0%86%E7%BD%91%E7%AB%99%E4%B8%8A%E4%BC%A0%E5%88%B0GitHub"><span class="toc-text">0x032 将网站上传到GitHub</span></a></li></ol></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
+      
+  <section class="widget side_recent_post">
+    
+  <header>
+    
+      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      
+      <!-- hash算法 -->
+      
+      <div class="aside-list">
+        
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/post/%E6%95%99%E7%A8%8B/%E9%80%9A%E8%BF%87termux%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%88%B0GitHub%20Pages.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">05-07</span>
+                
+                  <span class="post-date">05-07</span>
+                
               </div>
               <a class="post-title" href="/post/%E6%95%99%E7%A8%8B/%E9%80%9A%E8%BF%87termux%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%88%B0GitHub%20Pages.html">通过termux在手机上部署hexo到GitHub Pages</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/post/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/%E5%AE%89%E5%8D%93%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">05-06</span>
+                
+                  <span class="post-date">05-06</span>
+                
               </div>
               <a class="post-title" href="/post/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/%E5%AE%89%E5%8D%93%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE.html">安卓编译环境配置</a>
             </div>
-          </li>
+          </div>
         
-          
-          <li class="post-item" data-aos="fade-left">
+          <div class="aside-list-item">
             
+            
+            
+
             <div class="post-img-box">
               <a href="/post/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/hello-world.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                <span class="post-date">05-05</span>
+                
+                  <span class="post-date">05-05</span>
+                
               </div>
               <a class="post-title" href="/post/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/hello-world.html">0基础编写TWRP的Device Tree</a>
             </div>
-          </li>
+          </div>
         
-      </ul>
+      </div>
     </div>
   </section>
-  <div class="w-70">
+
     
   </div>
+</aside>
+
+  <!-- 图片放大 Wrap images with fancybox support -->
+  <script src="/js/wrapImage.js"></script>
 </div>
+
+<!-- 文章详情页背景图 -->
+<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
+	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
+	<transition-group tag="ul" :name="names">
+		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
+			<img :src="image" class="bg-swiper-img no-lazy">
+		</li>
+	</transition-group>
+</div>
+<script>
+	var vm = new Vue({
+		el: '#appBgSwiper',
+		data: {
+			names: '' || 'fade' || 'fade', // translate-fade fade
+			mark: 0,
+			img: [],
+			bgColor: '',
+			time: null
+		},
+		methods: {   //添加方法
+			change(i, m) {
+				if (i > m) {
+					// this.names = 'fade';
+				} else if (i < m) {
+					// this.names = 'fade';
+				} else {
+					return;
+				}
+				this.mark = i;
+			},
+			prev() {
+				// this.names = 'fade';
+				this.mark--;
+				if (this.mark === -1) {
+					this.mark = 3;
+					return
+				}
+			},
+			next() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			autoPlay() {
+				// this.names = 'fade';
+				this.mark++;
+				if (this.mark === this.img.length) {
+					this.mark = 0;
+					return
+				}
+			},
+			play() {
+				let bgImgDelay = '' || '180000'
+				let delay = parseInt(bgImgDelay) || 180000;
+				this.time = setInterval(this.autoPlay, delay);
+			},
+			enter() {
+				clearInterval(this.time);
+			},
+			leave() {
+				this.play();
+			}
+		},
+		created() {
+			this.play()
+		},
+		beforeDestroy() {
+			clearInterval(this.time);
+		},
+		mounted() {
+			let prop = '' || '';
+			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
+			if (isImg) {
+				let img = prop.split(',');
+				let configRoot = '/'
+				let arrImg = [];
+				img.forEach(el => {
+					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
+					var objExp = new RegExp(Expression);
+
+					if (objExp.test(el)) {
+						// http or https
+						arrImg.push(el);
+					} else {
+						// 非http or https开头
+						// 本地文件
+						let firstStr = el.charAt(0);
+						if (firstStr == '/') {
+							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
+						}
+						el = configRoot + el;
+						arrImg.push(el);
+					}
+				})
+				this.img = arrImg;
+			} else {
+				this.bgColor = prop;
+			}
+		}
+	})
+</script>
+
+<style>
+	.bg-swiper-box {
+		position: absolute;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bg-swiper-img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	}
+</style>
+
+
+
+
+  <script>
+  function loadMermaid() {
+    if (document.getElementsByClassName('mermaid').length) {
+      if (window.mermaidJsLoad) mermaid.init()
+      else {
+        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
+          window.mermaidJsLoad = true
+          mermaid.initialize({
+            theme: 'default',
+          })
+          if ('true') {
+            mermaid.init();
+          }
+        })
+      }
+    }
+  };
+  document.addEventListener("DOMContentLoaded", function () {
+    loadMermaid();
+  })
+
+  document.addEventListener('pjax:complete', function () {
+    loadMermaid();
+  })
+  
+</script>
+
 
       </main>
     </div>
