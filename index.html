@@ -522,7 +522,11 @@
                 <div class="flag-text-content">
                   <div class="title ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">Welcome to my BLOG</div>
                   
-                      <div class="excerpt ani animated" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s"></div>
+                    <div class="ani animated default-excerpt" swiper-animate-effect="fadeInDown" swiper-animate-duration="0.2s" swiper-animate-delay="0.1s">
+                      <vue-typed-js :strings="defaultDesc" :loop="defaultDescTypedLoop" :type-speed="100" :back-speed="50">
+                        <h1 class="typing"></h1>
+                      </vue-typed-js>
+                    </div>
                     
                 </div>
                 <div style="display: flex;" class="flag-text-btns">
@@ -548,7 +552,7 @@
   var loop = JSON.parse('true') ? false : JSON.parse('true');
   var effect = 'slide';
   var swiperLength = parseInt(document.querySelector(".swiper-length").innerText);
-  var defaultDesc = '';
+  var defaultDesc = '你的塞纳再快也跑不过我的羊群';
   defaultDesc = defaultDesc.split(',');
   var defaultDescTypedLoop = JSON.parse('true');
   var vm = new Vue({
@@ -1611,7 +1615,7 @@ Sessionsudo apt-get install bc bison build-essential ccache curl flex g++-multil
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Fri May 12 2023 21:33:37 GMT+0800 (中国标准时间)</div>
+            <div id="last-update" style="display: none;">Fri May 12 2023 21:36:27 GMT+0800 (中国标准时间)</div>
             <div id="last-update-show">2023-05-12 日</div>
           
         </div>
