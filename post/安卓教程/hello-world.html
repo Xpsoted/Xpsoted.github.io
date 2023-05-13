@@ -78,6 +78,8 @@
         
             
         
+            <link href="/custom/index.css" rel="stylesheet">
+        
     
     <!-- import script -->
     
@@ -552,6 +554,15 @@
       
 
       
+        <span class="post-detail-header_categories">
+          <i class="iconfont iconbookmark1"></i> 分类：
+          
+            <a href="/categories/%E5%AE%89%E5%8D%93%E6%95%99%E7%A8%8B/" class="post-detail-header_category">
+              安卓教程
+            </a>
+          
+        </span>
+      
 
       
     
@@ -637,11 +648,23 @@
 <p><img src="https://s2.loli.net/2023/05/05/ZrSyfRAtzxcduXY.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/ZrSyfRAtzxcduXY.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p><code>BoardConfig.mk</code><br>家人吗大的要来了，这步听我慢慢道来<br>从头开始看</p>
 <p><img src="https://s2.loli.net/2023/05/05/HNV8vK4rd9POma2.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/HNV8vK4rd9POma2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>上面那些#开头的注释不用管<br>首先是<br><code>DEVICE_PATH := device/duoqin/k61v1</code><br>将其改成<br><code>DEVICE_PATH := device/品牌英文名称/机型代号</code><br>这里的作用是声明你dt所存放的位置</p>
+<p>上面那些#开头的注释不用管<br>首先是</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">DEVICE_PATH <span class="token operator">:=</span> device/duoqin/k61v1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将其改成</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">DEVICE_PATH <span class="token operator">:=</span> device/品牌英文名称/机型代号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里的作用是声明你dt所存放的位置</p>
 <p><img src="https://s2.loli.net/2023/05/05/mBMbZda9SYtlexi.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/mBMbZda9SYtlexi.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>然后我标蓝的这块基本不用动，一个的作用是跳过依赖检查，还有个是声明CPU类型，两个都做了通用化处理，各位直接去我提供的例子里面复制就好</p>
 <p><img src="https://s2.loli.net/2023/05/05/EPg273HSaXxZh9t.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/EPg273HSaXxZh9t.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>接着是<br><code>TARGET_OTA_ASSERT_DEVICE := k61v1</code><br>将其改为<br><code>TARGET_OTA_ASSERT_DEVICE := 你的机型代号，注意空格</code><br>这里的作用是验证刷机包的机型验证，有的时候你刷机碰到错误7就是因为这里的机型和你刷机包里面刷机脚本的机型对不上</p>
+<p>接着是</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">TARGET_OTA_ASSERT_DEVICE <span class="token operator">:=</span> k61v1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>将其改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">TARGET_OTA_ASSERT_DEVICE <span class="token operator">:=</span> 你的机型代号，注意空格<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里的作用是验证刷机包的机型验证，有的时候你刷机碰到错误7就是因为这里的机型和你刷机包里面刷机脚本的机型对不上</p>
 <p><img src="https://s2.loli.net/2023/05/05/bWN13dpTj4Pqh2e.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/bWN13dpTj4Pqh2e.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>这部分代码应该也不用动，也做了通用化处理，这步是告诉你twrp源码的分区文件格式</p>
 <p><img src="https://s2.loli.net/2023/05/05/aBgukZ2VopDjqv5.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/aBgukZ2VopDjqv5.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
@@ -649,37 +672,149 @@
 <p><img src="https://s2.loli.net/2023/05/05/EcfdGamyqOlBMTZ.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/EcfdGamyqOlBMTZ.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>然后点击他选择编辑文本，将里面的话复制出来</p>
 <p><img src="https://s2.loli.net/2023/05/05/KWdP8D1yLEFJk36.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/KWdP8D1yLEFJk36.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>然后将<br><code>BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user</code><br>改为<br><code>BOARD_KERNEL_CMDLINE := 你复制的，注意空格</code></p>
+<p>然后将</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">BOARD_KERNEL_CMDLINE <span class="token operator">:=</span> bootopt<span class="token operator">=</span>64S3,32N2,64N2 buildvariant<span class="token operator">=</span>user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">BOARD_KERNEL_CMDLINE <span class="token operator">:=</span> 你复制的，注意空格<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
 <p><img src="https://s2.loli.net/2023/05/05/LtuOAP9Yk3yRGno.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/LtuOAP9Yk3yRGno.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>下面这两个实在声明你预编译内核的位置，如果你还多个dtbo.img就在<br><code>TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img的下面多➕一行</code><br><code>TARGET_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img</code><br>然后再➕一行<br><code>BOARD_INCLUDE_RECOVERY_DTBO := true</code><br>这里是声明你使用dtbo.img而且告诉twrp dtbo的位置<br>下面的部分不用管，直到这部分</p>
+<p>下面这两个实在声明你预编译内核的位置，如果你还多个dtbo.img就在</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">TARGET_PREBUILT_DTB <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span>DEVICE_PATH<span class="token punctuation">)</span>/prebuilt/dtb.img的下面多➕一行
+TARGET_PREBUILT_DTBOIMAGE <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span>DEVICE_PATH<span class="token punctuation">)</span>/prebuilt/dtbo.img<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>然后再➕一行</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">BOARD_INCLUDE_RECOVERY_DTBO <span class="token operator">:=</span> true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这里是声明你使用dtbo.img而且告诉twrp dtbo的位置<br>下面的部分不用管，直到这部分</p>
 <p><img src="https://s2.loli.net/2023/05/05/mNHyBEWJRMd3jQe.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/mNHyBEWJRMd3jQe.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>将<br><code>TARGET_KERNEL_SOURCE := kernel/duoqin/k61v1_64_bsp</code><br><code>TARGET_KERNEL_CONFIG := k61v1_64_bsp_defconfig</code><br>改为<br><code>TARGET_KERNEL_SOURCE := kernel/厂家英文名/机型代号</code><br><code>TARGET_KERNEL_CONFIG := 机型代号_defconfig</code><br>这步是在说明内核源码的位置<br>接下来是</p>
+<p>将</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">TARGET_KERNEL_SOURCE <span class="token operator">:=</span> kernel/duoqin/k61v1_64_bsp
+TARGET_KERNEL_CONFIG <span class="token operator">:=</span> k61v1_64_bsp_defconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">TARGET_KERNEL_SOURCE <span class="token operator">:=</span> kernel/厂家英文名/机型代号
+TARGET_KERNEL_CONFIG <span class="token operator">:=</span> 机型代号_defconfig<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<p>这步是在说明内核源码的位置<br>接下来是</p>
 <p><img src="https://s2.loli.net/2023/05/05/42x1R8qIpQHshrG.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/42x1R8qIpQHshrG.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := mt6761</code><br>将这里改为<br><code># Platform</code><br><code>TARGET_BOARD_PLATFORM := 你的soc型号</code>，比如高通855就写sm8150，865就是sm8250<br>下面这部分不用动</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Platform</span>
+TARGET_BOARD_PLATFORM <span class="token operator">:=</span> mt6761<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>将这里改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Platform</span>
+TARGET_BOARD_PLATFORM <span class="token operator">:=</span> 你的soc型号<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+
+<p>比如高通855就写sm8150，865就是sm8250<br>下面这部分不用动</p>
 <p><img src="https://s2.loli.net/2023/05/05/GTKOkqDwVIgmPlz.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/GTKOkqDwVIgmPlz.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>这部分都是写了一些自适应分辨率和，默认启动logcat之类的参数，也是可以直接复制的<br>接下来这步就在不同的手机上有不同的区别了，首先确定你的手机是否为动态分区<br>如果是动态分区搞清楚整个super分区大小，并搞清楚整个super里面都包含哪些分区</p>
 <p><img src="https://s2.loli.net/2023/05/05/1OAJqUISBikR4sw.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/1OAJqUISBikR4sw.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>搞清楚后将<br><code># Dynamic Partition</code><br><code>BOARD_SUPER_PARTITION_SIZE := 4294967296</code><br><code>BOARD_SUPER_PARTITION_GROUPS := main</code><br><code>BOARD_MAIN_SIZE := 4294967296</code><br><code>BOARD_MAIN_PARTITION_LIST := product vendor system</code><br>改为<br><code># Dynamic Partition</code><br><code>BOARD_SUPER_PARTITION_SIZE := super分区大小（字节为单位）</code><br><code>BOARD_SUPER_PARTITION_GROUPS := main</code><br><code>BOARD_MAIN_SIZE := super分区大小（字节为单位）</code><br><code>BOARD_MAIN_PARTITION_LIST := 包含在super里面的分区名称，用空格间隔</code><br>如果你不是动态分区直接把这些删掉就好<br>下面这部分基本可以照抄了</p>
+<p>搞清楚后将</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Dynamic Partition</span>
+BOARD_SUPER_PARTITION_SIZE <span class="token operator">:=</span> 4294967296
+BOARD_SUPER_PARTITION_GROUPS <span class="token operator">:=</span> main
+BOARD_MAIN_SIZE <span class="token operator">:=</span> 4294967296
+BOARD_MAIN_PARTITION_LIST <span class="token operator">:=</span> product vendor system<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Dynamic Partition</span>
+BOARD_SUPER_PARTITION_SIZE <span class="token operator">:=</span> super分区大小（字节为单位）
+BOARD_SUPER_PARTITION_GROUPS <span class="token operator">:=</span> main
+BOARD_MAIN_SIZE <span class="token operator">:=</span> super分区大小（字节为单位）
+BOARD_MAIN_PARTITION_LIST <span class="token operator">:=</span> 包含在super里面的分区名称，用空格间隔<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>如果你不是动态分区直接把这些删掉就好<br>下面这部分基本可以照抄了</p>
 <p><img src="https://s2.loli.net/2023/05/05/Zk2DhFXPQeRGuWU.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/Zk2DhFXPQeRGuWU.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>如果你的设备没有avb验证那么可以把<br><code># AVB</code><br><code>BOARD_AVB_ENABLE := true</code><br><code>BOARD_AVB_VBMETA_SYSTEM := system product</code><br><code>BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1</code><br><code>BOARD_AVB_VBMETA_VENDOR := vendor</code><br><code>BOARD_AVB_VBMETA_VENDOR_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_VBMETA_VENDOR_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 2</code><br><code>BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem</code><br><code>BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA2048</code><br><code>BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)</code><br><code>BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 3</code><br>删掉<br>下一步确定你的手机是否有独立rec分区，这步我让你们在准备工作中做了，如果有rec分区</p>
+<p>如果你的设备没有avb验证那么可以把</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># AVB</span>
+BOARD_AVB_ENABLE <span class="token operator">:=</span> true
+BOARD_AVB_VBMETA_SYSTEM <span class="token operator">:=</span> system product
+BOARD_AVB_VBMETA_SYSTEM_KEY_PATH <span class="token operator">:=</span> external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_SYSTEM_ALGORITHM <span class="token operator">:=</span> SHA256_RSA2048
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span>PLATFORM_SECURITY_PATCH_TIMESTAMP<span class="token punctuation">)</span>
+BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION <span class="token operator">:=</span> 1
+BOARD_AVB_VBMETA_VENDOR <span class="token operator">:=</span> vendor
+BOARD_AVB_VBMETA_VENDOR_KEY_PATH <span class="token operator">:=</span> external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_VBMETA_VENDOR_ALGORITHM <span class="token operator">:=</span> SHA256_RSA2048
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span>PLATFORM_SECURITY_PATCH_TIMESTAMP<span class="token punctuation">)</span>
+BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION <span class="token operator">:=</span> 2
+BOARD_AVB_RECOVERY_KEY_PATH <span class="token operator">:=</span> external/avb/test/data/testkey_rsa2048.pem
+BOARD_AVB_RECOVERY_ALGORITHM <span class="token operator">:=</span> SHA256_RSA2048
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX <span class="token operator">:=</span> <span class="token variable">$</span><span class="token punctuation">(</span>PLATFORM_SECURITY_PATCH_TIMESTAMP<span class="token punctuation">)</span>
+BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION <span class="token operator">:=</span> 3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>删掉<br>下一步确定你的手机是否有独立rec分区，这步我让你们在准备工作中做了，如果有rec分区</p>
 <p><img src="https://s2.loli.net/2023/05/05/doBVCDp3XTjxIS1.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/doBVCDp3XTjxIS1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>我选中这部分删掉，如果是ab，vab啥的就留着，这部分是在告诉twrp他是不是要把twrp编译进boot分区<br>下一部分是<br><code># Bootloader</code><br><code>TARGET_BOOTLOADER_BOARD_NAME := k61v1</code><br><code>TARGET_NO_BOOTLOADER := true</code><br><code>TARGET_USES_UEFI := true</code><br>代码啦<br>改为<br><code># Bootloader</code><br><code>TARGET_BOOTLOADER_BOARD_NAME := 机型代号</code><br><code>TARGET_NO_BOOTLOADER := 有fastboot就写true没有就写false</code><br><code>TARGET_USES_UEFI := true（这行只有vab分区需要留下，如果不是就删掉）</code></p>
+<p>我选中这部分删掉，如果是ab，vab啥的就留着，这部分是在告诉twrp他是不是要把twrp编译进boot分区<br>下一部分是</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Bootloader</span>
+TARGET_BOOTLOADER_BOARD_NAME <span class="token operator">:=</span> k61v1
+TARGET_NO_BOOTLOADER <span class="token operator">:=</span> true
+TARGET_USES_UEFI <span class="token operator">:=</span> true<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>代码啦<br>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Bootloader</span>
+TARGET_BOOTLOADER_BOARD_NAME <span class="token operator">:=</span> 机型代号
+TARGET_NO_BOOTLOADER <span class="token operator">:=</span> 有fastboot就写true没有就写false
+TARGET_USES_UEFI <span class="token operator">:=</span> true（这行只有vab分区需要留下，如果不是就删掉）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p><img src="https://s2.loli.net/2023/05/05/PpaDqM6bJgCkl9x.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/PpaDqM6bJgCkl9x.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
-<p>马上就到这个文件的最后一部啦<br>将<br><code># Partitions</code><br><code>BOARD_FLASH_BLOCK_SIZE := 131072</code><br><code>BOARD_BOOTIMAGE_PARTITION_SIZE := 33554432</code><br>改成</p>
-<p><code># Partitions</code><br><code>BOARD_FLASH_BLOCK_SIZE := 131072</code><br><code>BOARD_BOOTIMAGE_PARTITION_SIZE := 你boot分区的大小，上面的数字是32mb，还是已字节为单位，如果你是我上面说的第一种分区就直接扬了这行</code></p>
+<p>马上就到这个文件的最后一部啦<br>将</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile"><span class="token comment"># Partitions</span>
+BOARD_FLASH_BLOCK_SIZE <span class="token operator">:=</span> 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE <span class="token operator">:=</span> 33554432<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>改成</p>
+<pre class="line-numbers language-none"><code class="language-none"># Partitions
+BOARD_FLASH_BLOCK_SIZE :&#x3D; 131072
+BOARD_BOOTIMAGE_PARTITION_SIZE :&#x3D; 你boot分区的大小，上面的数字是32mb，还是已字节为单位，如果你是我上面说的第一种分区就直接扬了这行<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
 <p><code>device.mk</code><br>如果你既不是动态分区，也不是第二种分区，那么这步你就跳过，直接看下一步<br>如果你是vab分区那么直接把我这段复制过去</p>
 <p><img src="https://s2.loli.net/2023/05/05/YGiEQ9Tf6pj8reP.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/YGiEQ9Tf6pj8reP.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>只需要改动</p>
-<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
-<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>如果你只是动态分区，那么需要你保留我标蓝的部分</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/duoqin/k61v1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/厂家英文名/机型代号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果你只是动态分区，那么需要你保留我标蓝的部分</p>
 <p><img src="https://s2.loli.net/2023/05/05/TkKgfu7CqL94eJE.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/TkKgfu7CqL94eJE.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>其他全部扬掉<br>只需要改动</p>
-<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
-<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>如果你不是动态分区只是ab分区<br>删掉我标蓝部分</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/duoqin/k61v1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/厂家英文名/机型代号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>如果你不是动态分区只是ab分区<br>删掉我标蓝部分</p>
 <p><img src="https://s2.loli.net/2023/05/05/fIHzZmu5DYbdrnJ.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/fIHzZmu5DYbdrnJ.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>只需要改动</p>
-<p><code>LOCAL_PATH := device/duoqin/k61v1</code><br>改为</p>
-<p><code>LOCAL_PATH := device/厂家英文名/机型代号</code><br>并将<br><code>AB_OTA_PARTITIONS += \</code><br><code>boot \</code><br><code>system \</code><br><code>product \</code><br><code>dtbo \</code><br><code>vbmeta \</code><br><code>vbmeta_system \</code><br><code>vendor</code><br>改成你机器所存在的AB分区<br>最后一个是twrp_你机型代号.mk<br>这步很简单</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/duoqin/k61v1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>改为</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">LOCAL_PATH <span class="token operator">:=</span> device/厂家英文名/机型代号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>并将</p>
+<pre class="line-numbers language-makefile" data-language="makefile"><code class="language-makefile">AB_OTA_PARTITIONS <span class="token operator">+=</span> \
+boot \
+system \
+product \
+dtbo \
+vbmeta \
+vbmeta_system \
+vendor<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>改成你机器所存在的AB分区<br>最后一个是twrp_你机型代号.mk<br>这步很简单</p>
 <p><img src="https://s2.loli.net/2023/05/05/U2dSEZhPK9sOtAR.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/U2dSEZhPK9sOtAR.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>改为</p>
 <p><img src="https://s2.loli.net/2023/05/05/jZMNQ7xAFIlCo2J.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/05/jZMNQ7xAFIlCo2J.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
@@ -737,7 +872,7 @@
       
       <!-- <div class="content">
         1.安装依赖
-Sessionsudo apt-get install bc bison build-essential 
+sudo apt-get install bc bison build-essential ccache 
       </div> -->
     </a>
   </div>
@@ -995,6 +1130,27 @@ Sessionsudo apt-get install bc bison build-essential
             
 
             <div class="post-img-box">
+              <a href="/post/%E6%95%99%E7%A8%8B/2023-05-13-HEXO%E4%BB%BB%E6%84%8F%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E4%B8%80%E8%A8%80.html" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://s2.loli.net/2023/05/13/lNaxTyMRnLi5Wcw.png" class="lazyload placeholder" data-srcset="https://s2.loli.net/2023/05/13/lNaxTyMRnLi5Wcw.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">05-13</span>
+                
+              </div>
+              <a class="post-title" href="/post/%E6%95%99%E7%A8%8B/2023-05-13-HEXO%E4%BB%BB%E6%84%8F%E4%B8%BB%E9%A2%98%E4%B8%8B%E6%B7%BB%E5%8A%A0%E4%B8%80%E8%A8%80.html">HEXO任意主题下添加一言</a>
+            </div>
+          </div>
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
               <a href="/post/%E6%95%99%E7%A8%8B/%E9%80%9A%E8%BF%87termux%E5%9C%A8%E6%89%8B%E6%9C%BA%E4%B8%8A%E9%83%A8%E7%BD%B2hexo%E5%88%B0GitHub%20Pages.html" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="/media/Termux-For-PC-Logo.jpg" class="lazyload placeholder" data-srcset="/media/Termux-For-PC-Logo.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
@@ -1137,7 +1293,7 @@ Sessionsudo apt-get install bc bison build-essential
 			clearInterval(this.time);
 		},
 		mounted() {
-			let prop = '' || '';
+			let prop = '' || 'https://api.vvhan.com/api/bing';
 			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
 			if (isImg) {
 				let img = prop.split(',');
@@ -1902,7 +2058,7 @@ Sessionsudo apt-get install bc bison build-essential
       utterances.async = true;
       utterances.setAttribute('issue-term', 'pathname')
       utterances.setAttribute('theme', utteranceCommon.Theme)
-      utterances.setAttribute('repo', '')
+      utterances.setAttribute('repo', 'https://github.com/Xpsoted/Xpsoted.github.io')
       utterances.crossorigin = 'anonymous';
       utterances.src = 'https://utteranc.es/client.js';
       // content 是要插入评论的地方
